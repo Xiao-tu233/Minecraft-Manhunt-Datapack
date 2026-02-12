@@ -72,7 +72,7 @@ This project is not open-source.
 
 随机分队的函数: `manhunt:random_team`
 随机分队会将**尚未加入任何队伍**的玩家
-按默认 Runner : Hunter ≈ 1 : 1 的比例随机分配，^[1]
+按默认 Runner : Hunter ≈ 1 : 1 的比例随机分配，[^1]
 
 当参与随机分队的玩家总数为奇数时，
 Runner 人数取总人数的一半并向下取整。
