@@ -1,5 +1,6 @@
 # Minecraft-Manhunt-Datapack
 A Manhunt Datapack supports multiple runners and hunters, compasses target switching and more!
+
 一个支持多名 Hunter 和 Runner、
 并允许指南针目标切换等功能的数据包！
 
@@ -47,6 +48,7 @@ This project is not open-source.
 #### Hunter 禁止活动时间调整
 游戏开始之后 Hunter 会有默认有30秒的禁止活动时间供 Runner 提前开始发育
 如果需要更改禁止活动的时间 需要更改变量 `#start_countdown` 单位是游戏刻(服务器不掉刻情况下的20分之1秒)
+
 例如我希望更改禁止活动的时间到1分钟(1200 ticks):
 ```mcfunction
 /scoreboard players set #random_team_runners var 1200
@@ -71,12 +73,15 @@ This project is not open-source.
 随机分队的函数: `manhunt:random_team`
 随机分队会将**尚未加入任何队伍**的玩家
 按默认 Runner : Hunter ≈ 1 : 1 的比例随机分配，^[1]
+
 当参与随机分队的玩家总数为奇数时，
 Runner 人数取总人数的一半并向下取整。
+
 通过`#random_team_runners`变量来更改Runner的期望人数(不包括已选队玩家)
 
 为了理解这些分队管理 这里是一些例子:
 - 3名玩家参加游戏 玩家A作为 Runner 游戏, 玩家B、C 作为 Hunter 游戏:
+  
     玩家A运行指令:
     ```mcfunction
     /trigger join_runner
@@ -87,12 +92,14 @@ Runner 人数取总人数的一半并向下取整。
     ```
 
 - 7名玩家参加游戏 随机3个玩家作为 Runner 游戏:
+  
     由于 3 就是 7 的一半并向下取整 所以直接:
     ```mcfunction
     /function manhunt:random_team
     ```
 
 - 6名玩家参加游戏 2个玩家作为 Runner 游戏:
+  
     先:
     ```mcfunction
     /scoreboard players set #random_team_runners var 2
@@ -103,7 +110,8 @@ Runner 人数取总人数的一半并向下取整。
     ```
 
 
-- 6名玩家参加游戏 有一名玩家他由于一些原因 他希望自己作为Hunter 游戏 剩下玩家随机3个 Runner 和2个 Hunter
+- 6名玩家参加游戏 有一名玩家他由于一些原因 他希望自己作为Hunter 游戏 剩下玩家随机3个 Runner 和2个 Hunter:
+  
     先让这名有原因的玩家:
     ```mcfunction
     /trigger join_hunter
