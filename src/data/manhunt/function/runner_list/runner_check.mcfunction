@@ -1,0 +1,1 @@
+$execute as $(name) if entity @s[team=runner] run function manhunt:runner_list/give_id
