@@ -23,6 +23,8 @@ team leave @a
 
 # Game inits
 gamerule locator_bar false
+execute in the_nether run gamerule locatorBar false
+execute in the_end run gamerule locatorBar false
 gamerule pvp false
 difficulty peaceful
 advancement revoke @a everything
