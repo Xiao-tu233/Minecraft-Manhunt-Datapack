@@ -8,18 +8,23 @@ scoreboard players operation #game_timer_second var %= #60 var
 scoreboard players operation #game_timer_minute var /= #60 var
 
 scoreboard players operation #game_timer_hour var = #game_timer_minute var
-scoreboard players operation #game_timer_minute var %= #24 var
-scoreboard players operation #game_timer_hour var /= #24 var
+scoreboard players operation #game_timer_minute var %= #60 var
+scoreboard players operation #game_timer_hour var /= #60 var
 
 execute store result score #day var run time query day
 scoreboard players add #day var 1
 execute store result score #daytime var run time query daytime
+
 scoreboard players operation #daytime_minute var = #daytime var
-scoreboard players operation #daytime var %= #60 var
+scoreboard players operation #daytime_minute var %= #1000 var
 scoreboard players operation #daytime_minute var /= #60 var
-scoreboard players operation #daytime_hour var = #daytime_minute var
+
+scoreboard players operation #daytime_second var = #daytime_minute var
 scoreboard players operation #daytime_minute var %= #60 var
-scoreboard players operation #daytime_hour var /= #60 var
+scoreboard players operation #daytime_second var /= #60 var
+
+scoreboard players operation #daytime_hour var = #daytime var
+scoreboard players operation #daytime_hour var /= #1000 var
 
 
 data modify storage manhunt: game_timer.minute_placeholder set value ""
@@ -46,6 +51,5 @@ execute if score #daytime_hour var matches 12.. run title @a actionbar ["", \
     {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8| §a第", \
     {score: {name: "#day", objective: "var"}, color: "green"}, "§a天 夜晚§r, ", \
     {score: {name: "#daytime_hour", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime", objective: "var"}, color: "yellow"}\
+    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, ""\
 ]
