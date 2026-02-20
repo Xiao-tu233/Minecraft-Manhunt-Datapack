@@ -9,7 +9,7 @@ scoreboard players set #20 var 20
 scoreboard players set #2 var 2
 scoreboard players operation #start_countdown_second var /= #20 var
 gamerule pvp true
-difficulty hard
+difficulty normal
 time set day
 weather clear
 clear @a

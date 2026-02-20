@@ -23,8 +23,8 @@ team leave @a
 
 # Game inits
 gamerule locator_bar false
-execute in the_nether run gamerule locatorBar false
-execute in the_end run gamerule locatorBar false
+execute in the_nether run gamerule locator_bar false
+execute in the_end run gamerule locator_bar false
 gamerule pvp false
 difficulty peaceful
 advancement revoke @a everything
@@ -35,6 +35,8 @@ effect give @a instant_health 1 5
 effect give @a saturation 1 5
 
 tellraw @a ["[§6Manhunt§r] §aManHunt 数据包重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233. All Rights Reserved."]
+
+execute if score #manhunt_extra_enabled var matches 1 run function manhunt:extra/initialize
 
 tellraw @a ["[§6Manhunt§r] 相关配置项(var记分项上的分数)和公有函数: \n\
   - #random_team_runners 随机分队时的 Runners 人数\n\
