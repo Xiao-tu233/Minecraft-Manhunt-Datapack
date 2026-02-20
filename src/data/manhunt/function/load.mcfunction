@@ -34,7 +34,7 @@ effect clear @a
 effect give @a instant_health 1 5
 effect give @a saturation 1 5
 
-tellraw @a ["[§6Manhunt§r] §aManHunt 数据包重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233. All Rights Reserved."]
+tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.2 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233. All Rights Reserved."]
 
 execute if score #manhunt_extra_enabled var matches 1 run function manhunt:extra/initialize
 
