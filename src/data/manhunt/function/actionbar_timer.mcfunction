@@ -11,19 +11,24 @@ scoreboard players operation #game_timer_hour var = #game_timer_minute var
 scoreboard players operation #game_timer_minute var %= #24 var
 scoreboard players operation #game_timer_hour var /= #24 var
 
-
-
 execute store result score #day var run time query day
 execute store result score #daytime var run time query daytime
 scoreboard players operation #daytime_hour var = #daytime var
-scoreboard players operation #daytime var %= #24 var
-scoreboard players operation #daytime_hour var /= #24 var
+scoreboard players operation #daytime var %= #60 var
+scoreboard players operation #daytime_hour var /= #60 var
+
+data modify storage manhunt: game_timer.minute_placeholder set value ""
+data modify storage manhunt: game_timer.second_placeholder set value ""
+execute if score #game_timer_minute var matches ..9 run data modify storage manhunt: game_timer.minute_placeholder set value "0"
+execute if score #game_timer_second var matches ..9 run data modify storage manhunt: game_timer.second_placeholder set value "0"
 
 title @a actionbar ["", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
+    {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
     {score: {name: "#game_timer_minute", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8|§rIngame: §aDay ", \
+    {storage: "manhunt:", nbt: "game_timer.second_placeholder", color: "yellow"}, \
+    {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8| §aDay ", \
     {score: {name: "#day", objective: "var"}, color: "green"}, ", ", \
-    {score: {name: "#daytime_hour var", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime var", objective: "var"}, color: "yellow"}\
+    {score: {name: "#daytime_hour", objective: "var"}, color: "yellow"}, ":", \
+    {score: {name: "#daytime", objective: "var"}, color: "yellow"}\
 ]
