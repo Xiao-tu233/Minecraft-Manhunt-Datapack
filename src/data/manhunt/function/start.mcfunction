@@ -14,6 +14,14 @@ clear @a
 advancement revoke @a everything
 xp set @a 0
 xp set @a 0 levels
+
+# timer
+data modify storage manhunt: game_timer.minute_placeholder set value "0"
+data modify storage manhunt: game_timer.second_placeholder set value "0"
+data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
+data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
+data modify storage manhunt: game_timer.second_placeholder_ set value "0"
+
 tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 将在 ", {score: {name: "#start_countdown_second", objective: "var"}, color: "yellow"}, " 秒后开始行动! "]
 data remove storage manhunt: args
 execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var 
