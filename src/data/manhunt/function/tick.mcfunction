@@ -4,7 +4,7 @@ scoreboard players enable @a join_runner
 scoreboard players enable @a tracking_runner
 scoreboard players enable @a start
 
-execute if score #game_started var matches 0 run function manhunt:actionbar_player_count
+execute unless score #game_started var matches 1 run function manhunt:actionbar_player_count
 
 execute if score #start_countdown var matches 1.. if score #game_started var matches 1 run function manhunt:countdown
 execute if score #start_countdown var matches 0 run function manhunt:time_up

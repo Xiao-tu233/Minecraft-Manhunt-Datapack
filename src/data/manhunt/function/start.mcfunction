@@ -14,6 +14,8 @@ time set day
 weather clear
 clear @a
 advancement revoke @a everything
+xp set @a 0
+xp set @a 0 levels
 tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 将在 ", {score: {name: "#start_countdown_second", objective: "var"}, color: "yellow"}, " 秒后开始行动! "]
 data remove storage manhunt: args
 execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var 
