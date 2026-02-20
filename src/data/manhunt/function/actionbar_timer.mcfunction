@@ -32,6 +32,14 @@ data modify storage manhunt: game_timer.second_placeholder set value ""
 execute if score #game_timer_minute var matches ..9 run data modify storage manhunt: game_timer.minute_placeholder set value "0"
 execute if score #game_timer_second var matches ..9 run data modify storage manhunt: game_timer.second_placeholder set value "0"
 
+data modify storage manhunt: game_timer.hour_placeholder_ set value ""
+data modify storage manhunt: game_timer.minute_placeholder_ set value ""
+data modify storage manhunt: game_timer.second_placeholder_ set value ""
+execute if score #daytime_hour var matches ..9 run data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
+execute if score #daytime_minute var matches ..9 run data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
+execute if score #daytime_second var matches ..9 run data modify storage manhunt: game_timer.second_placeholder_ set value "0"
+
+
 execute if score #daytime_hour var matches ..11 run title @a actionbar ["", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
     {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
@@ -39,8 +47,13 @@ execute if score #daytime_hour var matches ..11 run title @a actionbar ["", \
     {storage: "manhunt:", nbt: "game_timer.second_placeholder", color: "yellow"}, \
     {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8| §a第", \
     {score: {name: "#day", objective: "var"}, color: "green"}, "§a天 白天§r, ", \
+    {storage: "manhunt:", nbt: "game_timer.hour_placeholder_", color: "yellow"}, \
     {score: {name: "#daytime_hour", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, \
+    {storage: "manhunt:", nbt: "game_timer.minute_placeholder_", color: "yellow"}, \
+    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, ":", \
+    {storage: "manhunt:", nbt: "game_timer.second_placeholder", color: "yellow"}, \
+    {score: {name: "#daytime_second", objective: "var"}, color: "yellow"} \
+]
 execute if score #daytime_hour var matches 12.. run title @a actionbar ["", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
     {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
@@ -48,6 +61,10 @@ execute if score #daytime_hour var matches 12.. run title @a actionbar ["", \
     {storage: "manhunt:", nbt: "game_timer.second_placeholder", color: "yellow"}, \
     {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8| §a第", \
     {score: {name: "#day", objective: "var"}, color: "green"}, "§a天 夜晚§r, ", \
+    {storage: "manhunt:", nbt: "game_timer.hour_placeholder_", color: "yellow"}, \
     {score: {name: "#daytime_hour", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, ""\
+    {storage: "manhunt:", nbt: "game_timer.minute_placeholder_", color: "yellow"}, \
+    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, ":", \
+    {storage: "manhunt:", nbt: "game_timer.second_placeholder", color: "yellow"}, \
+    {score: {name: "#daytime_second", objective: "var"}, color: "yellow"} \
 ]
