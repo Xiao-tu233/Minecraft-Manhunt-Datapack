@@ -14,6 +14,11 @@ scoreboard players reset * runner_id
 scoreboard players set #start_countdown var 600
 scoreboard players reset #random_team_runners var
 
+scoreboard players set #60 var 60
+scoreboard players set #24 var 24
+scoreboard players set #20 var 20
+scoreboard players set #2 var 2
+
 # Team inits
 team add hunter
 team add runner
