@@ -40,9 +40,7 @@ execute if score #daytime_hour var matches ..11 run title @a actionbar ["", \
     {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8| §a第", \
     {score: {name: "#day", objective: "var"}, color: "green"}, "§a天 白天§r, ", \
     {score: {name: "#daytime_hour", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, ":", \
-    {score: {name: "#daytime", objective: "var"}, color: "yellow"}\
-]
+    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"}, \
 execute if score #daytime_hour var matches 12.. run title @a actionbar ["", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
     {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
