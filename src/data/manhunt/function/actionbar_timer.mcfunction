@@ -1,8 +1,5 @@
 scoreboard players add #game_timer var 1
 
-scoreboard players operation #game_timer_second var = #game_timer var
-scoreboard players operation #game_timer_second var /= #20 var
-
 execute if score #game_timer var matches 20 run function manhunt:timer/second
 
 execute store result score #day var run time query day
@@ -13,13 +10,13 @@ execute store result score #daytime var run time query daytime
 scoreboard players operation #daytime_hour var = #daytime var
 scoreboard players operation #daytime_hour var /= #1000 var
 
-scoreboard players operation #daytime_second var = #daytime var
-scoreboard players operation #daytime_second var %= #1000 var
-scoreboard players operation #daytime_second var /= #60 var
-
-scoreboard players operation #daytime_minute var = #daytime_second var
-scoreboard players operation #daytime_second var %= #60 var
+scoreboard players operation #daytime_minute var = #daytime var
+scoreboard players operation #daytime_minute var %= #1000 var
+scoreboard players operation #daytime_minute var *= #36 var
+scoreboard players operation #daytime_minute var /= #10 var
+scoreboard players operation #daytime_second var = #daytime_minute var
 scoreboard players operation #daytime_minute var /= #60 var
+scoreboard players operation #daytime_second var %= #60 var
 
 data modify storage manhunt: game_timer.hour_placeholder_ set value ""
 data modify storage manhunt: game_timer.minute_placeholder_ set value ""

@@ -16,8 +16,10 @@ scoreboard players reset #random_team_runners var
 
 scoreboard players set #1000 var 1000
 scoreboard players set #60 var 60
+scoreboard players set #36 var 36
 scoreboard players set #24 var 24
 scoreboard players set #20 var 20
+scoreboard players set #10 var 10
 scoreboard players set #2 var 2
 
 # Team inits

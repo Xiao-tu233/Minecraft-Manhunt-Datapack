@@ -16,6 +16,10 @@ xp set @a 0
 xp set @a 0 levels
 
 # timer
+scoreboard players set #game_timer var 0
+scoreboard players set #game_timer_second var 0
+scoreboard players set #game_timer_minute var 0
+scoreboard players set #game_timer_hour var 0
 data modify storage manhunt: game_timer.minute_placeholder set value "0"
 data modify storage manhunt: game_timer.second_placeholder set value "0"
 data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
@@ -27,4 +31,3 @@ data remove storage manhunt: args
 execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var 
 function manhunt:give_effect with storage manhunt: args
 scoreboard players set #game_started var 1
-scoreboard players set #game_timer var 0
