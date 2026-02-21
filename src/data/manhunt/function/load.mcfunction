@@ -35,7 +35,7 @@ execute in the_nether run gamerule locator_bar false
 execute in the_end run gamerule locator_bar false
 gamerule pvp false
 difficulty peaceful
-advancement revoke @a everything
+gamemode adventure @a
 time set day
 weather clear
 effect clear @a
