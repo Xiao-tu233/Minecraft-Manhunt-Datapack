@@ -51,3 +51,5 @@ tellraw @a ["[§6Manhunt§r] 相关配置项(var记分项上的分数)和公有�
   - manhunt:random_team (作为OP执行) 对没有队伍的玩家随机分队\n\
   - /trigger start (作为Runners执行) 开始游戏\n\
 "]
+
+function manhunt:extra/load

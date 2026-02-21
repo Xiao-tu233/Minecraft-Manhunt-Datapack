@@ -7,10 +7,12 @@ execute if score #game_started var matches 1 run return run tellraw @s ["[§6Man
 scoreboard players operation #start_countdown_second var = #start_countdown var
 scoreboard players operation #start_countdown_second var /= #20 var
 gamerule pvp true
-difficulty normal
+difficulty hard
+execute if score #manhunt_extra_enabled var matches 1 run difficulty normal
 time set day
 weather clear
 clear @a
+effect clear @a
 advancement revoke @a everything
 xp set @a 0
 xp set @a 0 levels
