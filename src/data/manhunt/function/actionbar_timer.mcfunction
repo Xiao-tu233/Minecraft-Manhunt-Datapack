@@ -19,6 +19,8 @@ scoreboard players operation #daytime_minute var /= #60 var
 data modify storage manhunt: game_timer.am_pm set value "白天"
 execute if score #daytime_hour var matches 12.. run data modify storage manhunt: game_timer.am_pm set value "夜晚"
 scoreboard players add #daytime_hour var 6
+execute if score #daytime_hour var matches 24.. run function manhunt:timer/rollover_day_at_midnight
+
 
 data modify storage manhunt: game_timer.hour_placeholder_ set value ""
 data modify storage manhunt: game_timer.minute_placeholder_ set value ""
