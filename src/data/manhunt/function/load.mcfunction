@@ -1,4 +1,6 @@
 # Objectives
+
+scoreboard objectives add joined dummy
 scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
