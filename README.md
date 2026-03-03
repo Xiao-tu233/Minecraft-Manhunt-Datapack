@@ -2,7 +2,7 @@
 A Manhunt Datapack supports multiple runners and hunters, compasses target switching and more!
 
 一个支持多名 Hunter 和 Runner、
-并允许指南针目标切换等功能的数据包！
+并允许指南针目标切换等功能的数据包！！
 
 
 > This project is documented in Chinese only and supports Minecraft 1.21.10 - 1.21.11 only
