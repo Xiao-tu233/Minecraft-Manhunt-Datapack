@@ -17,4 +17,5 @@ execute at @s run function manhunt:get_tracker_contexts with storage manhunt: ar
 
 data modify storage manhunt: args.Dimension set from entity @s Dimension
 execute store result storage manhunt: args.slot int 1 run scoreboard players get #compass_slot var
-function manhunt:sync_compass_macro with storage manhunt: args
+execute if data storage manhunt: args.Pos[0] run function manhunt:sync_compass_macro with storage manhunt: args
+execute unless data storage manhunt: args.Pos[0] run function manhunt:sync_lost_compass_macro with storage manhunt: args

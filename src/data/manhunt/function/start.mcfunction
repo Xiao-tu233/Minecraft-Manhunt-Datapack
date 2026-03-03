@@ -6,11 +6,14 @@ execute if score #game_started var matches 1 run return run tellraw @s ["[§6Man
 
 scoreboard players operation #start_countdown_second var = #start_countdown var
 scoreboard players operation #start_countdown_second var /= #20 var
-gamerule pvp true
+execute in overworld run gamerule pvp true
+execute in the_nether run gamerule pvp true
+execute in the_end run gamerule pvp true
 defaultgamemode survival
 gamemode survival @a
+function manhunt:hard
 difficulty hard
-execute if score #manhunt_extra_enabled var matches 1 run difficulty normal
+execute if score #manhunt_extra_enabled var matches 1 run function manhunt:normal
 gamerule advance_time true
 gamerule advance_weather true
 clear @a

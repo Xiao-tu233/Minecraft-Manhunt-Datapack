@@ -47,12 +47,5 @@ effect give @a saturation 1 5
 
 tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.5 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233. All Rights Reserved."]
 
-tellraw @a ["[§6Manhunt§r] 相关配置项(var记分项上的分数)和公有函数: \n\
-  - #random_team_runners 随机分队时的 Runners 人数\n\
-  - #start_countdown 开始之后的猎人禁止活动时间 单位ticks\n\
-  - manhunt:revive (作为Runners且OP执行) 复活\n\
-  - manhunt:random_team (作为OP执行) 对没有队伍的玩家随机分队\n\
-  - /trigger start (作为Runners执行) 开始游戏\n\
-"]
-
 function manhunt:extra/load
+function manhunt:options
