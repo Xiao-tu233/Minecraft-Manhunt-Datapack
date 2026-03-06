@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:multi_action",
+    "inputs": [
+        {
+            "label": "",
+            "key": "var",
+            "type": "text"
+        }
+    ],
+    "title": "设置随机分队时的 Runners 人数",
+    "actions": [
+        {
+            "label": "完成",
+            "tooltip": "点击设置",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function manhunt:options/random_team_set {var: $(var)}"
+            }
+        }
+    ],
+    "can_close_with_escape": true
+}

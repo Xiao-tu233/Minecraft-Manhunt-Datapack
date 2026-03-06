@@ -1,11 +1,9 @@
 # Parent function: manhunt:tick
 
 scoreboard players set @s start 0
-execute as @s[team=hunter] run return run tellraw @s ["[§6ManHunt§r] 你需要是 Runner 才可以开始游戏! "]
+execute as @s[team=!runner] run return run tellraw @s ["[§6ManHunt§r] 你需要是 Runner 才可以开始游戏! "]
 execute if score #game_started var matches 1 run return run tellraw @s ["[§6ManHunt§r] 游戏已经开始了! "]
 
-scoreboard players operation #start_countdown_second var = #start_countdown var
-scoreboard players operation #start_countdown_second var /= #20 var
 execute in overworld run gamerule pvp true
 execute in the_nether run gamerule pvp true
 execute in the_end run gamerule pvp true
@@ -33,7 +31,13 @@ data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
 data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
 data modify storage manhunt: game_timer.second_placeholder_ set value "0"
 
-tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 将在 ", {score: {name: "#start_countdown_second", objective: "var"}, color: "yellow"}, " 秒后开始行动! "]
+execute unless score #start_countdown var matches 0.. run function manhunt:start_countdown_default
+
+scoreboard players operation #start_countdown_second var = #start_countdown var
+scoreboard players operation #start_countdown_second var /= #20 var
+
+execute if score #start_countdown var matches 1.. run tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 将在 ", {score: {name: "#start_countdown_second", objective: "var"}, color: "yellow"}, " 秒后开始行动! "]
+execute if score #start_countdown var matches 0 run tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 立即行动! "]
 data remove storage manhunt: args
 execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var 
 function manhunt:give_effect with storage manhunt: args

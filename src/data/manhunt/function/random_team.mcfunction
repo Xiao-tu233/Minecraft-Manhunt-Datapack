@@ -3,7 +3,8 @@
 
 execute unless score #random_team_runners var matches 1.. run function manhunt:random_team_default
 
-function manhunt:random_team_loop
+execute if score #random_team_runners var matches 1.. run function manhunt:random_team_loop
 execute as @a[team=!runner] run function manhunt:join/hunter
 
+function manhunt:options
 tellraw @a ["[§6Manhunt§r] 成功随机分队: ", {text: "Hunters: ", color: "blue", extra: [{selector: "@a[team=hunter]"}]}, " §lvs ", {text: "Runners: ", color: "red", extra: [{selector: "@a[team=runner]"}]}]
