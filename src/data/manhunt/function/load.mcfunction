@@ -6,22 +6,23 @@ scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
 scoreboard objectives add tracking_runner dummy
 scoreboard objectives add if_die deathCount
-scoreboard objectives remove var 
+scoreboard objectives remove var
 scoreboard objectives add var dummy
 scoreboard objectives add runner_id dummy
 scoreboard objectives add dimension dummy
 scoreboard objectives add slot_before_drop dummy
 scoreboard players reset * runner_id
 
-scoreboard players set #start_countdown var 600
 scoreboard players reset #random_team_runners var
 
 scoreboard players set #1000 var 1000
+scoreboard players set #200 var 200
 scoreboard players set #60 var 60
 scoreboard players set #36 var 36
 scoreboard players set #24 var 24
 scoreboard players set #20 var 20
 scoreboard players set #10 var 10
+scoreboard players set #5 var 5
 scoreboard players set #2 var 2
 
 # Team inits

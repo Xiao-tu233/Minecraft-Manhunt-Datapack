@@ -11,7 +11,7 @@ execute if score #game_started var matches 1 run function manhunt:actionbar_time
 
 
 execute if score #start_countdown var matches 1.. if score #game_started var matches 1 run function manhunt:countdown
-execute if score #start_countdown var matches 0 run function manhunt:time_up
+execute if score #start_countdown var matches 0 if score #game_started var matches 1 run function manhunt:time_up
 
 execute as @a[team=runner] at @s run function manhunt:save_contexts
 execute as @a[team=hunter] run function manhunt:sync_compass
