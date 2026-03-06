@@ -38,7 +38,6 @@ execute in the_end run gamerule locator_bar false
 gamerule pvp false
 difficulty peaceful
 gamemode adventure @a
-defaultgamemode adventure
 gamerule advance_time false
 gamerule advance_weather false
 time set day
