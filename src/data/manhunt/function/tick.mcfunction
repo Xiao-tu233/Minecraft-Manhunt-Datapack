@@ -3,8 +3,8 @@ scoreboard players enable @a join_hunter
 scoreboard players enable @a join_runner
 scoreboard players enable @a start
 
-execute as @a unless score @s joined matches 1..19 run scoreboard players add @s joined 1
-execute as @a[scores={joined=20..}] run function manhunt:game_inits
+execute as @a unless score @s joined matches 19.. run scoreboard players add @s joined 1
+execute as @a[scores={joined=20..}] run function manhunt:gm_change
 
 execute unless score #game_started var matches 1.. run function manhunt:actionbar_player_count
 execute if score #game_started var matches 1 run function manhunt:actionbar_timer
