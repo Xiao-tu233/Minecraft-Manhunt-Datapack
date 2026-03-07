@@ -1,23 +1,23 @@
 # Objectives
-
 scoreboard objectives add joined dummy
 scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
-scoreboard objectives add tracking_runner dummy
 scoreboard objectives add if_die deathCount
-scoreboard objectives remove var 
+scoreboard objectives remove var
 scoreboard objectives add var dummy
-scoreboard objectives add runner_id dummy
 scoreboard objectives add dimension dummy
 scoreboard objectives add slot_before_drop dummy
-scoreboard players reset * runner_id
+scoreboard objectives add dropped_timer dummy
 
-scoreboard players set #start_countdown var 600
-scoreboard players reset #random_team_runners var
+scoreboard objectives remove runner_id
+scoreboard players set #global_current runner_id 0 
+scoreboard objectives add runner_id dummy
+scoreboard objectives add tracking_runner dummy
 
-scoreboard players set #200 var 200
+# Constants
 scoreboard players set #1000 var 1000
+scoreboard players set #200 var 200
 scoreboard players set #60 var 60
 scoreboard players set #36 var 36
 scoreboard players set #24 var 24
@@ -31,7 +31,7 @@ team add hunter
 team add runner
 team modify hunter color blue
 team modify runner color red
-team leave @a
+team leave *
 
 # Game inits
 gamerule locator_bar false

@@ -10,4 +10,4 @@ execute store result storage manhunt: args.id int 1 run scoreboard players get @
 function manhunt:save_contexts_dim_switched with storage manhunt: args
 
 
-scoreboard players operation @s dimension = #current_dsimension var
+scoreboard players operation @s dimension = #current_dimension var
