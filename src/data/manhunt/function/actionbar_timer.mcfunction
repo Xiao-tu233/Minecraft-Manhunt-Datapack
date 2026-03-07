@@ -16,7 +16,7 @@ scoreboard players operation #daytime_minute var *= #36 var
 scoreboard players operation #daytime_minute var /= #10 var
 scoreboard players operation #daytime_minute var /= #60 var
 
-data modify storage manhunt: game_timer.am_pm set value ""
+data modify storage manhunt: game_timer.am_pm set value "早上"
 execute if score #daytime_hour var matches 6..11 run data modify storage manhunt: game_timer.am_pm set value "午后"
 execute if score #daytime_hour var matches 12..17 run data modify storage manhunt: game_timer.am_pm set value "夜晚"
 execute if score #daytime_hour var matches 18.. run data modify storage manhunt: game_timer.am_pm set value "凌晨"
