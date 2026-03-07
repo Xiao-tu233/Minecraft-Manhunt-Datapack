@@ -5,3 +5,4 @@ execute as @a[team=runner, scores={if_die=0}] run function manhunt:append_name_a
 data modify storage manhunt: alive_runners append from storage manhunt: alive_runners[0]
 function manhunt:get_next
 title @s actionbar ["正在追踪: ", {storage: "manhunt:", nbt: "tracking_name"}]
+execute as @a[team=hunter] store result score #tracking_runner var run scoreboard players get @s tracking_runner

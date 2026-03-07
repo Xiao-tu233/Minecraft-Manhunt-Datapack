@@ -12,3 +12,5 @@ data modify storage manhunt: runner_list set value [[]]
 data modify storage manhunt: runner_contexts set value [[]]
 execute as @a[team=runner] run function manhunt:append_name
 function manhunt:runner_list/refresh
+
+function manhunt:sync_compass

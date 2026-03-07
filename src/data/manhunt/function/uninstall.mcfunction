@@ -8,6 +8,7 @@ scoreboard objectives remove var
 scoreboard objectives remove runner_id
 scoreboard objectives remove dimension
 scoreboard objectives remove slot_before_drop
+scoreboard objectives remove joined
 
 # Team inits
 team remove hunter
