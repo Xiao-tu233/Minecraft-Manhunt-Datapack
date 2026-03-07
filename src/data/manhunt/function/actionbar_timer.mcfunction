@@ -29,6 +29,9 @@ data modify storage manhunt: game_timer.minute_placeholder_ set value ""
 execute if score #daytime_hour var matches ..9 run data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
 execute if score #daytime_minute var matches ..9 run data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
 
+execute if score #daytime_hour var matches 0 run data modify storage manhunt: game_timer.hour_placeholder_ set value "00"
+execute if score #daytime_minute var matches 0 run data modify storage manhunt: game_timer.minute_placeholder_ set value "00"
+
 title @a actionbar ["", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
     {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
