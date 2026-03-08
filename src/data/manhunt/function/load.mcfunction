@@ -3,6 +3,7 @@ scoreboard objectives add joined dummy
 scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
+scoreboard objectives add open_menu trigger
 scoreboard objectives add if_die deathCount
 scoreboard objectives remove var
 scoreboard objectives add var dummy
