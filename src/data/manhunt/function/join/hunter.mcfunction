@@ -1,4 +1,5 @@
 # Parent function: manhunt:tick
+scoreboard players set @s join_hunter 0
 
 tellraw @s ["[§6ManHunt§r] 你加入了 ", {text: "Hunter", color: "blue"}, " 队伍! "]
 team join hunter @s
