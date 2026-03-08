@@ -1,9 +1,11 @@
 # Triggers
 scoreboard players enable @a join_hunter
 scoreboard players enable @a join_runner
+scoreboard players enable @a open_menu
 scoreboard players enable @a start
 execute as @a[scores={join_hunter=1..}] run function manhunt:join/hunter
 execute as @a[scores={join_runner=1..}] run function manhunt:join/runner
+execute as @a[scores={open_menu=1..}] run function manhunt:options
 execute as @a[scores={start=1..}] run function manhunt:start
 execute as @a[team=!runner, scores={runner_id=0..}] run function manhunt:leave_runner
 

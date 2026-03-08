@@ -1,4 +1,4 @@
-scoreboard players set @s join_hunter 0
+scoreboard players set @s open_menu 0
 
 data remove storage manhunt: options
 data modify storage manhunt: options set value []
