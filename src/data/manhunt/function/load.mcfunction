@@ -9,10 +9,12 @@ scoreboard objectives remove var
 scoreboard objectives add var dummy
 scoreboard objectives add dimension dummy
 scoreboard objectives add slot_before_drop dummy
-scoreboard objectives add dropped_timer dummy
+scoreboard objectives add show_actionbar dummy
+scoreboard objectives add show_actionbar.notice_type dummy
+scoreboard objectives add matching_dimension dummy
 
 scoreboard objectives remove runner_id
-scoreboard players set #global_current runner_id 0 
+scoreboard players set #global_current runner_id 0
 scoreboard objectives add runner_id dummy
 scoreboard objectives add tracking_runner dummy
 
@@ -26,6 +28,7 @@ scoreboard players set #20 var 20
 scoreboard players set #10 var 10
 scoreboard players set #5 var 5
 scoreboard players set #2 var 2
+scoreboard players set #-1 var -1
 
 # Team inits
 team add hunter

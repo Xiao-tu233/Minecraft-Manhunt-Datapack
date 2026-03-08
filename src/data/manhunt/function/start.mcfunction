@@ -20,6 +20,8 @@ xp set @a 0
 xp set @a 0 levels
 time set day
 
+scoreboard players set @a if_die 0
+
 # timer
 scoreboard players set #game_timer var 0
 scoreboard players set #game_timer_second var 0
