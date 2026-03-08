@@ -15,8 +15,18 @@ data remove storage manhunt: args
 execute store result storage manhunt: args.slot int 1 run scoreboard players get #compass_slot var
 execute store result storage manhunt: args.id int 1 run scoreboard players get @s tracking_runner
 execute at @s run function manhunt:get_tracker_contexts with storage manhunt: args
-
+execute store result score #tracking_runner var run scoreboard players get @s tracking_runner
 data modify storage manhunt: args.Dimension set from entity @s Dimension
 execute store result storage manhunt: args.slot int 1 run scoreboard players get #compass_slot var
-execute if data storage manhunt: args.Pos[0] run function manhunt:sync_compass_macro with storage manhunt: args
-execute unless data storage manhunt: args.Pos[0] run function manhunt:sync_lost_compass_macro with storage manhunt: args
+
+tag @s add current_hunter
+
+execute as @a[team=runner] at @s if score #tracking_runner var = @s runner_id if predicate manhunt:in_overworld run execute as @a[tag=current_hunter] at @s if predicate manhunt:in_overworld run function manhunt:sync_compass_macro with storage manhunt: args
+execute as @a[team=runner] at @s if score #tracking_runner var = @s runner_id if predicate manhunt:in_nether run execute as @a[tag=current_hunter] at @s if predicate manhunt:in_nether run function manhunt:sync_compass_macro with storage manhunt: args
+execute as @a[team=runner] at @s if score #tracking_runner var = @s runner_id if predicate manhunt:in_end run execute as @a[tag=current_hunter] at @s if predicate manhunt:in_end run function manhunt:sync_compass_macro with storage manhunt: args
+
+execute as @a[team=runner] at @s if score #tracking_runner var = @s runner_id if predicate manhunt:in_overworld run execute as @a[tag=current_hunter] at @s unless predicate manhunt:in_overworld run function manhunt:sync_lost_compass_macro with storage manhunt: args
+execute as @a[team=runner] at @s if score #tracking_runner var = @s runner_id if predicate manhunt:in_nether run execute as @a[tag=current_hunter] at @s unless predicate manhunt:in_nether run function manhunt:sync_lost_compass_macro with storage manhunt: args
+execute as @a[team=runner] at @s if score #tracking_runner var = @s runner_id if predicate manhunt:in_end run execute as @a[tag=current_hunter] at @s unless predicate manhunt:in_end run function manhunt:sync_lost_compass_macro with storage manhunt: args
+
+tag @s remove current_hunter
