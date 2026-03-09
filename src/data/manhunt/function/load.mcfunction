@@ -52,7 +52,7 @@ effect clear @a
 effect give @a instant_health 1 5
 effect give @a saturation 1 5
 
-tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.5 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233. All Rights Reserved."]
+tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233, Pressnre. All Rights Reserved."]
 
 function manhunt:extra/load
 function manhunt:options

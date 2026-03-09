@@ -1,7 +1,9 @@
+
 tellraw @a ["[§6Manhunt§r] 游戏结束! ", "用时 ", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, "时", \
     {score: {name: "#game_timer_minute", objective: "var"}, color: "yellow"}, "分", \
-    {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, "秒"\
+    {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, "秒", \
+    {storage: "manhunt: ", nbt: "temp.final_runner_died_pos", interpret: true}, "." \ 
 ]
 title @a title ["§6游戏结束! "]
 title @a subtitle [{storage:"manhunt:", nbt:"temp.win_side"}, " 胜利"]
