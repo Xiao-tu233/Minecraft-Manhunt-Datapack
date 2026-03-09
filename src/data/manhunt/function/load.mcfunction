@@ -13,6 +13,8 @@ scoreboard objectives add show_actionbar dummy
 scoreboard objectives add show_actionbar.notice_type dummy
 scoreboard objectives add matching_dimension dummy
 
+data remove storage manhunt: temp
+
 scoreboard objectives remove runner_id
 scoreboard players set #global_current runner_id 0
 scoreboard objectives add runner_id dummy
