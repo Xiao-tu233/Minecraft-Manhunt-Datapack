@@ -11,8 +11,8 @@ defaultgamemode survival
 gamemode survival @a
 function manhunt:hard
 execute if score #manhunt_extra_enabled var matches 1 run function manhunt:extra/easy
-gamerule doDaylightCycle true
-gamerule doWeatherCycle true
+gamerule advance_time true
+gamerule advance_weather true
 clear @a
 effect clear @a
 advancement revoke @a everything

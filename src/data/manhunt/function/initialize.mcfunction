@@ -41,14 +41,14 @@ team modify runner color red
 team leave *
 
 # Game inits
-gamerule locatorBar false
-execute in the_nether run gamerule locatorBar false
-execute in the_end run gamerule locatorBar false
+gamerule locator_bar false
+execute in the_nether run gamerule locator_bar false
+execute in the_end run gamerule locator_bar false
 gamerule pvp false
 difficulty peaceful
 gamemode adventure @a
-gamerule doDaylightCycle false
-gamerule doWeatherCycle false
+gamerule advance_time false
+gamerule advance_weather false
 time set day
 weather clear
 effect clear @a
