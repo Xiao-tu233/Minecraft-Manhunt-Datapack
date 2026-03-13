@@ -1,10 +1,10 @@
 {
   "pack": {
-    "description": "ManHuntDatapack By Xiao_tu233 for Minecraft 1.21.11",
+    "description": "ManHuntDatapack By Xiao_tu233, Pressnre for Minecraft 1.21.10",
     "min_format": [
-      94,
+      88,
       1
     ],
-    "max_format": 94
+    "max_format": 88
   }
 }
