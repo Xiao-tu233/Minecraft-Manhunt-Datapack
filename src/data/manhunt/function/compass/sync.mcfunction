@@ -1,0 +1,5 @@
+# @macro: {slot: int, tracking_status: str, name: str, lodestone_tracker: compound[target: compound[Pos: Double[3], Dimension: str], tracked: Literal[false]]}
+$scoreboard players set #compass_slot var $(slot)
+$execute if score #compass_slot var matches 50 run item replace entity @s weapon.offhand with compass[custom_data={manhunt_tracker:1b}, custom_name=["$(tracking_status)§b$(name) §8(丢出切换)"], lodestone_tracker=$(lodestone_tracker)]
+$execute if score #compass_slot var matches 51 run item replace entity @s player.cursor with compass[custom_data={manhunt_tracker:1b}, custom_name=["$(tracking_status)§b$(name) §8(丢出切换)"], lodestone_tracker=$(lodestone_tracker)]
+$execute if score #compass_slot var matches 0..35 run item replace entity @s container.$(slot) with compass[custom_data={manhunt_tracker:1b}, custom_name=["$(tracking_status)§b$(name) §8(丢出切换)"], lodestone_tracker=$(lodestone_tracker)]

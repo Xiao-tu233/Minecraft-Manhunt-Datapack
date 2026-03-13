@@ -9,10 +9,14 @@ scoreboard objectives remove var
 scoreboard objectives add var dummy
 scoreboard objectives add dimension dummy
 scoreboard objectives add slot_before_drop dummy
-scoreboard objectives add dropped_timer dummy
+scoreboard objectives add show_actionbar dummy
+scoreboard objectives add show_actionbar.notice_type dummy
+scoreboard objectives add matching_dimension dummy
+
+data remove storage manhunt: temp
 
 scoreboard objectives remove runner_id
-scoreboard players set #global_current runner_id 0 
+scoreboard players set #global_current runner_id 0
 scoreboard objectives add runner_id dummy
 scoreboard objectives add tracking_runner dummy
 
@@ -26,6 +30,7 @@ scoreboard players set #20 var 20
 scoreboard players set #10 var 10
 scoreboard players set #5 var 5
 scoreboard players set #2 var 2
+scoreboard players set #-1 var -1
 
 # Team inits
 team add hunter
@@ -49,7 +54,7 @@ effect clear @a
 effect give @a instant_health 1 5
 effect give @a saturation 1 5
 
-tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.5 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233. All Rights Reserved."]
+tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233, Pressnre. All Rights Reserved."]
 
 function manhunt:extra/load
 function manhunt:options

@@ -1,0 +1,2 @@
+execute if score @s tracking_runner > #left_id var run scoreboard players remove @s tracking_runner 1
+execute if score @s tracking_runner = #left_id var run scoreboard players operation @s tracking_runner = @p[team=runner, scores={if_die=0}] runner_id

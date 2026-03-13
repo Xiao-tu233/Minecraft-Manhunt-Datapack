@@ -2,7 +2,7 @@ scoreboard players set @s open_menu 0
 
 data remove storage manhunt: options
 data modify storage manhunt: options set value []
-data modify storage manhunt: options append value "===================§6Manhunt §9配置菜单§r===================="
+data modify storage manhunt: options append value "===================§6Manhunt §b配置菜单§r===================="
 
 # Team
 data modify storage manhunt: options append value "\n加入队伍:"
@@ -14,7 +14,7 @@ data modify storage manhunt: options append value {text: "[§9Hunter§r]", hover
 
 # Random team
 data modify storage manhunt: options append value "\n随机分队:"
-data modify storage manhunt: options append value "\n    §6Runner人数§r: "
+data modify storage manhunt: options append value "\n    §6Runner 人数§r: "
 execute store result score #player_to_team var if entity @a[team=!hunter, team=!runner]
 
 scoreboard players set #is_random_team_runners_valid var 0
@@ -103,7 +103,7 @@ data modify storage manhunt: options append value "\n    §6执行开始§r: "
 data modify storage manhunt: options append value {text: "[§a§l开始游戏§r]", hover_event: {action: "show_text", value: "§r作为Runner点击开始游戏"}, click_event: {action: "run_command", command: "/trigger start"}}
 
 data modify storage manhunt: options append value "\n"
-data modify storage manhunt: options append value {text: "[§l重新呼出本菜单§r]", hover_event: {action: "show_text", value: "重新呼出配置菜单"}, click_event: {action: "run_command", command: "/function manhunt:options"}}
+data modify storage manhunt: options append value {text: "[§l重新呼出本菜单§r]", hover_event: {action: "show_text", value: "重新呼出配置菜单"}, click_event: {action: "run_command", command: "/trigger open_menu"}}
 
 data modify storage manhunt: options append value "\n====================================================="
 
