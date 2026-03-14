@@ -10,7 +10,7 @@ execute in the_end run gamerule pvp true
 defaultgamemode survival
 gamemode survival @a
 function manhunt:hard
-execute if score #manhunt_extra_enabled var matches 1 run function manhunt:normal
+execute if score #manhunt_extra_enabled var matches 1 run function manhunt:extra/easy
 gamerule advance_time true
 gamerule advance_weather true
 clear @a
@@ -19,6 +19,8 @@ advancement revoke @a everything
 xp set @a 0
 xp set @a 0 levels
 time set day
+
+scoreboard players set @a if_die 0
 
 # timer
 scoreboard players set #game_timer var 0
