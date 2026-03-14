@@ -5,6 +5,8 @@ scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
 scoreboard objectives add open_menu trigger
+scoreboard objectives add hit_feedback_on trigger
+scoreboard objectives add hit_feedback_off trigger
 scoreboard objectives add if_die deathCount
 scoreboard objectives remove var
 scoreboard objectives add var dummy
@@ -13,6 +15,9 @@ scoreboard objectives add slot_before_drop dummy
 scoreboard objectives add show_actionbar dummy
 scoreboard objectives add show_actionbar.notice_type dummy
 scoreboard objectives add matching_dimension dummy
+scoreboard objectives add toggle_state dummy
+scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken
+scoreboard objectives add damage_taken_old dummy
 
 data remove storage manhunt: temp
 
@@ -36,6 +41,7 @@ scoreboard players set #-1 var -1
 # Team inits
 team add hunter
 team add runner
+team add temp
 team modify hunter color blue
 team modify runner color red
 team leave *
@@ -44,7 +50,7 @@ team leave *
 gamerule locator_bar false
 execute in the_nether run gamerule locator_bar false
 execute in the_end run gamerule locator_bar false
-gamerule pvp false
+gamerule pvp true
 difficulty peaceful
 gamemode adventure @a
 gamerule advance_time false
