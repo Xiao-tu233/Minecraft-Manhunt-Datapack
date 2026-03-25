@@ -39,9 +39,14 @@ data remove storage manhunt: args
 data modify storage manhunt: args.name set from storage manhunt: name
 data modify storage manhunt: args.lodestone_tracker set value {}
 execute if data storage manhunt: temp.compass_contexts.Pos run function manhunt:compass/sync/set_lodestone_tracker
-execute store result storage manhunt: args.slot int 1 run scoreboard players get #compass_slot var
+execute store result storage manhunt: args.slot_index int 1 run scoreboard players get #compass_slot var
 execute if score @s matching_dimension matches 0 run data modify storage manhunt: args.tracking_status set value "§c丢失目标§r: "
 execute if score @s matching_dimension matches 1 run data modify storage manhunt: args.tracking_status set value "§a正在追踪§r: "
 execute unless score @s tracking_runner = @s tracking_runner run data modify storage manhunt: args.tracking_status set value "§c无可用追踪"
+
+execute if score #compass_slot var matches 50 run data modify storage manhunt: args.slot set value "weapon.offhand"
+execute if score #compass_slot var matches 51 run data modify storage manhunt: args.slot set value "player.cursor"
+execute unless score #compass_slot var matches 0..35 run data modify storage manhunt: args.slot_index set value ""
+execute if score #compass_slot var matches 0..35 run data modify storage manhunt: args.slot set value "container."
 
 function manhunt:compass/sync with storage manhunt: args
