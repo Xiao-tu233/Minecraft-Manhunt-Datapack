@@ -11,3 +11,4 @@ Following todos are for standard pack:
 - [ ] Hit feedbacks: !with predicates to make better
 - [ ] Add ID fix
 - [ ] Stop compasses from being created maps
+- [ ] Avoid losting item if switch the compass from inventory to containers
