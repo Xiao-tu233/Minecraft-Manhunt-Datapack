@@ -8,3 +8,7 @@ Following todo are for extra pack:
 Following todos are for standard pack:
 - [ ] Consider to Raise a vote when runners are leaving game for long
 - [ ] Consider if runners could void being tracked by quitting the game. In the other word, is offline players trackable ( I mean compasses considers theirselves as tracking no mather whether there is a coors or not )
+- [ ] Hit feedbacks: !with predicates to make better
+- [ ] Add ID fix
+- [ ] Stop compasses from being created maps
+- [ ] Avoid losting item if switch the compass from inventory to containers
