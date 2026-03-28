@@ -41,7 +41,6 @@ scoreboard players set #-1 var -1
 # Team inits
 team add hunter
 team add runner
-team add temp
 team modify hunter color blue
 team modify runner color red
 team leave *
