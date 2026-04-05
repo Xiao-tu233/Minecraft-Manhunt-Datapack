@@ -13,3 +13,6 @@ title @a title ["§6游戏结束! "]
 title @a subtitle [{storage:"manhunt:", nbt:"temp.win_side"}, " 胜利"]
 gamemode creative @a
 scoreboard players set #game_started var 2
+
+# Create file of data/command_storage_game_ends.dat for detecting if the game has ended or crashed
+data modify storage game_ends: ends set value true
