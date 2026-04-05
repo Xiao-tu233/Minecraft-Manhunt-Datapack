@@ -16,3 +16,4 @@ scoreboard players set #game_started var 2
 
 # Create file of data/command_storage_game_ends.dat for detecting if the game has ended or crashed
 data modify storage game_ends: ends set value true
+save-all
