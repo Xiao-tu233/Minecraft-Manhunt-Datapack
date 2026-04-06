@@ -1,5 +1,5 @@
 Following todo are for extra pack:
-- [ ] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
+- [x] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
 - [x] Set game difficulty to easy
 - [ ] Use /locate command and anchors to get the current position of the bastion, fortress \
       and make recipe for the locator
