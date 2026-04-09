@@ -40,7 +40,6 @@ scoreboard players set #-1 var -1
 # Team inits
 team add hunter
 team add runner
-team add temp
 team modify hunter color blue
 team modify runner color red
 team leave *
@@ -64,3 +63,6 @@ tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎
 
 function manhunt:extra/load
 function manhunt:options
+
+#kill brutes
+execute as @e[type=piglin_brute] run function manhunt:brute_kill
