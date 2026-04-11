@@ -5,6 +5,7 @@ scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
 scoreboard objectives add open_menu trigger
+scoreboard objectives add iron_spread trigger
 scoreboard objectives add pause trigger
 scoreboard objectives add hit_feedback trigger
 scoreboard objectives add hit_feedback_ dummy
@@ -17,6 +18,9 @@ scoreboard objectives add show_actionbar dummy
 scoreboard objectives add show_actionbar.notice_type dummy
 scoreboard objectives add matching_dimension dummy
 scoreboard objectives add hurt dummy
+scoreboard objectives add mine_iron minecraft.mined:minecraft.iron_ore
+scoreboard objectives add iron_spread_status dummy
+scoreboard objectives add iron_spread_ dummy
 # scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken
 # scoreboard objectives add damage_taken_old dummy
 
