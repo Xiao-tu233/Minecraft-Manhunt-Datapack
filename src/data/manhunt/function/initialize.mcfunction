@@ -17,6 +17,7 @@ scoreboard objectives add show_actionbar.notice_type dummy
 scoreboard objectives add matching_dimension dummy
 scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken
 scoreboard objectives add damage_taken_old dummy
+scoreboard objectives add iron_spread trigger
 
 data remove storage manhunt: temp
 
@@ -66,3 +67,7 @@ function manhunt:options
 
 #kill brutes
 execute as @e[type=piglin_brute] run function manhunt:brute_kill
+
+#iron spread
+forceload add 0 0
+scoreboard objectives add mine_iron minecraft.mined:minecraft.iron_ore
