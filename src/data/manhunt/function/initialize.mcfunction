@@ -5,6 +5,7 @@ scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
 scoreboard objectives add open_menu trigger
+scoreboard objectives add pause trigger
 scoreboard objectives add hit_feedback trigger
 scoreboard objectives add hit_feedback_ dummy
 scoreboard objectives add if_die deathCount
@@ -15,8 +16,9 @@ scoreboard objectives add slot_before_drop dummy
 scoreboard objectives add show_actionbar dummy
 scoreboard objectives add show_actionbar.notice_type dummy
 scoreboard objectives add matching_dimension dummy
-scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken
-scoreboard objectives add damage_taken_old dummy
+scoreboard objectives add hurt dummy
+# scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken
+# scoreboard objectives add damage_taken_old dummy
 
 data remove storage manhunt: temp
 
@@ -61,8 +63,7 @@ effect give @a saturation 1 5
 
 tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233, Pressnre. All Rights Reserved."]
 
-function manhunt:extra/load
 function manhunt:options
 
-#kill brutes
-execute as @e[type=piglin_brute] run function manhunt:brute_kill
+# Kill brutes
+execute if entity @e[type=piglin_brute] run function manhunt:brute_kill
