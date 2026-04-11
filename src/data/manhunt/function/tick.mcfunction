@@ -12,9 +12,8 @@ execute as @a[scores={start=1..}] run function manhunt:start
 execute as @a[team=!runner, scores={runner_id=-1..}] run function manhunt:leave_runner
 clear @a[team=!hunter] compass[custom_data={manhunt_tracker:1b}]
 
-# Hit feedbacks: !with predicates to make better
-execute as @a[scores={hit_feedback_=1}] at @s if score @s damage_taken > @s damage_taken_old if score @s hit_feedback_ matches 1 run function manhunt:do_hit_feedback
-execute as @a run scoreboard players operation @s damage_taken_old = @s damage_taken
+# Hit feedbacks
+execute as @a[scores={hit_feedback_=1}] run function manhunt:hit_feedback/detect
 
 # Change gamemode after 20 ticks after joining server
 execute as @a unless score @s joined matches 20.. run scoreboard players add @s joined 1

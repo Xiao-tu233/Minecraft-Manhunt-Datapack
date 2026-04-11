@@ -1,3 +1,12 @@
+# {
+#      start_cooldown: 600s, 
+#      difficulty: "peaceful", 
+#      compass_leads_last_position_in_current_dimension: true, 
+#      compass_misses_when_dimension_is_not_matching: false, 
+#      locator_bar: false, 
+#      summons_piglin_brutes: false,  
+# }
+
 scoreboard players set @s open_menu 0
 
 data remove storage manhunt: options
