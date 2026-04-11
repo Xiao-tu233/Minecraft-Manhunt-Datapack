@@ -1,3 +1,7 @@
+
+- [ ] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
+- [ ] Merge piglin loot table from extra pack
+- [ ] Add trigger pause for runner to directly pause the game and for hunters to vote a pause
 Following todo are for extra pack:
 - [x] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
 - [x] Set game difficulty to easy
@@ -6,9 +10,3 @@ Following todo are for extra pack:
 - [ ] 考虑更改矿石双掉 为 矿脉概率扩展几格 (像Hypixel UHC中一样 在挖矿的同时矿脉有概率把周围的石头也变成矿石) 包括铁金钻
 - [x] 移除错误的末影人战利品表
 Following todos are for standard pack:
-- [ ] Consider to Raise a vote when runners are leaving game for long
-- [ ] Consider if runners could void being tracked by quitting the game. In the other word, is offline players trackable ( I mean compasses considers theirselves as tracking no mather whether there is a coors or not )
-- [ ] Hit feedbacks: !with predicates to make better
-- [ ] Add ID fix
-- [ ] Stop compasses from being created maps
-- [ ] Avoid losting item if switch the compass from inventory to containers

@@ -1,5 +1,3 @@
-say snowball
-
 scoreboard players set #loop_time var 0
 execute anchored eyes run summon arrow ^ ^ ^ {Tags:["ironmark"],NoGravity:1b}
 execute positioned 0.0 0.0 0.0 run summon marker ^ ^ ^10 {Tags:["Pos"]}

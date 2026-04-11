@@ -1,4 +1,3 @@
-say hit!
 execute store result score #random var run random value 1..6
 
 execute as @n[type=arrow,tag=ironmark] at @s if block ~1 ~ ~ stone if score #random var matches 1 run return run function manhunt:iron_spread/iron_replaced {ironpos:"~1 ~ ~"}
