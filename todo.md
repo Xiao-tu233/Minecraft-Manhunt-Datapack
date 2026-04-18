@@ -1,7 +1,7 @@
 
-- [ ] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
-- [ ] Merge piglin loot table from extra pack
-- [ ] Add trigger pause for runner to directly pause the game and for hunters to vote a pause
+- [x] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
+- [x] Merge piglin loot table from extra pack
+- [x] Add trigger pause for runner to directly pause the game and for hunters to vote a pause
 Following todo are for extra pack:
 - [x] Stop piglin brute from spawning ( By editting bastion's generation json if possible )/
 - [x] Set game difficulty to easy
