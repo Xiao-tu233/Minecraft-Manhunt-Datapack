@@ -7,6 +7,7 @@ scoreboard objectives add join_runner trigger
 scoreboard objectives add open_menu trigger
 scoreboard objectives add iron_spread trigger
 scoreboard objectives add pause trigger
+scoreboard objectives add vote trigger
 scoreboard objectives add hit_feedback trigger
 scoreboard objectives add hit_feedback_ dummy
 scoreboard objectives add if_die deathCount
@@ -26,6 +27,7 @@ scoreboard objectives add iron_spread_ dummy
 
 data remove storage manhunt: temp
 
+scoreboard players set #hunter_voted var 0
 scoreboard objectives remove runner_id
 scoreboard players set #global_current runner_id 0
 scoreboard objectives add runner_id dummy
@@ -65,7 +67,7 @@ effect clear @a
 effect give @a instant_health 1 5
 effect give @a saturation 1 5
 
-tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 Xiao_tu233, Pressnre. All Rights Reserved."]
+tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 PictureIsHere, Pressnre. All Rights Reserved."]
 
 function manhunt:options
 
