@@ -73,4 +73,5 @@ tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎
 function manhunt:options
 
 # Kill brutes
-execute if entity @e[type=piglin_brute] run function manhunt:brute_kill
+#structure locator
+function manhunt:structure_lct/check
