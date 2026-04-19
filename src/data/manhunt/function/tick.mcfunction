@@ -26,8 +26,8 @@ execute as @a[scores={hit_feedback_=1}] run function manhunt:hit_feedback/detect
 execute as @a unless score @s joined matches 20.. run scoreboard players add @s joined 1
 execute as @a[scores={joined=20}] run function manhunt:gm_change
 
-execute unless score #game_started var matches 1.. run function manhunt:actionbar_player_count
-execute if score #game_started var matches 1 unless score #pausing var matches 1 run function manhunt:tick_game_started
+execute unless score #game_started var matches 1.. if score #pausing var matches 0 run function manhunt:actionbar_player_count
+execute if score #game_started var matches 1 if score #pausing var matches 0 run function manhunt:tick_game_started
 
 execute as @a[team=runner] run function manhunt:save_contexts
 execute as @a[team=hunter] run function manhunt:sync_compass

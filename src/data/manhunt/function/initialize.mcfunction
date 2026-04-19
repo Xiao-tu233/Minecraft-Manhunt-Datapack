@@ -27,6 +27,7 @@ scoreboard objectives add iron_spread_ dummy
 
 data remove storage manhunt: temp
 
+scoreboard players set #pausing var 0
 scoreboard players set #hunter_voted var 0
 scoreboard objectives remove runner_id
 scoreboard players set #global_current runner_id 0
