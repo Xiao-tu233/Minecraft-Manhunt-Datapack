@@ -1,3 +1,4 @@
+# Parent function: IDK
 # Called by: (Player) Any OP who teams in runner
 # Usage: As an OP: /execute as <PlayerToRevive> run function manhunt:revive
 execute if entity @s[team=!runner] run return run tellraw @a "[§6Manhunt§r] §c你不是 Runner 队伍的成员，无法使用复活功能! "

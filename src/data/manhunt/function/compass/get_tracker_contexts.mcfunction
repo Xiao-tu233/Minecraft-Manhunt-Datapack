@@ -1,3 +1,4 @@
+# Parent function: manhunt:sync_compass
 # @macro: {id: int}
 
 $execute as @p[scores={runner_id=$(id)}] run function manhunt:get_name

@@ -1,3 +1,4 @@
+# Parent function: manhunt:./get;./loop_inventory
 # @macro: {slot: int}
 $execute if items entity @s container.$(slot) compass[custom_data={manhunt_tracker:1b}] run scoreboard players set #compass_slot var $(slot)
 

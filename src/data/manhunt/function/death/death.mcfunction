@@ -2,5 +2,5 @@
 execute if entity @a[team=runner, scores={if_die=0}] run function manhunt:death/continue
 execute unless entity @a[team=runner, scores={if_die=0}] run function manhunt:death/hunter_win
 scoreboard players set @s if_die 2
-function manhunt:leave_runner
+function manhunt:death/leave_runner
 scoreboard players set @s runner_id -1

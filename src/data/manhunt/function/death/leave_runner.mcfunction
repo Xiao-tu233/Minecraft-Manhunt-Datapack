@@ -1,3 +1,4 @@
+# Parent function: manhunt:rick;death;list_avail
 scoreboard players operation #left_id var = @s runner_id
 
 scoreboard players remove #global_current runner_id 1

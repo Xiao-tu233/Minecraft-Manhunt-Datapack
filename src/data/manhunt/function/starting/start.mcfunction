@@ -9,7 +9,7 @@ execute in the_nether run gamerule pvp true
 execute in the_end run gamerule pvp true
 defaultgamemode survival
 gamemode survival @a
-function manhunt:hard
+function manhunt:starting/hard
 execute if score #manhunt_extra_enabled var matches 1 run function manhunt:extra/easy
 gamerule advance_time true
 gamerule advance_weather true
@@ -33,7 +33,7 @@ data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
 data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
 data modify storage manhunt: game_timer.second_placeholder_ set value "0"
 
-execute unless score #start_countdown var matches 0.. run function manhunt:start_countdown_default
+execute unless score #start_countdown var matches 0.. run function manhunt:timer/start_countdown_default
 
 scoreboard players operation #start_countdown_second var = #start_countdown var
 scoreboard players operation #start_countdown_second var /= #20 var
@@ -42,5 +42,5 @@ execute if score #start_countdown var matches 1.. run tellraw @a ["[§6ManHunt§
 execute if score #start_countdown var matches 0 run tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 立即行动! "]
 data remove storage manhunt: args
 execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var 
-function manhunt:give_effect with storage manhunt: args
+function manhunt:starting/give_effect with storage manhunt: args
 scoreboard players set #game_started var 1

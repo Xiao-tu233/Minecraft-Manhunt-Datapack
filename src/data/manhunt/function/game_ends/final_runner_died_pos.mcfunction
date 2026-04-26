@@ -1,3 +1,4 @@
+# Parent function: This is so annoying so i decide not to write this anymore.
 # @macro: {x: double, y: double, z: double, dim: string}
 data modify storage manhunt: temp.final_runner_died_pos set value []
 data modify storage manhunt: temp.final_runner_died_pos append value ", 点击传送Runner死亡地点: "

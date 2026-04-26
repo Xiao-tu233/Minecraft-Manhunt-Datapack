@@ -1,3 +1,4 @@
+# Parent function: manhunt:get_tracker_contexts;save_contexts;append_name_alive;append_name;join/runner
 # @return: storage "manhunt:" name: str
 data remove storage manhunt: name
 execute at @s run summon text_display ~ ~ ~ {Tags: ["name_getter"]}

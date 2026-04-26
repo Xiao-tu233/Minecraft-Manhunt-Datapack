@@ -16,15 +16,15 @@ execute if score @s slot_before_drop matches 0..35 run data modify storage manhu
 
 # Maintain item count to 1
 execute store result score #compass_amount var run clear @s compass[custom_data={manhunt_tracker:1b}] 0
-execute if score #compass_amount var matches 0 run function manhunt:give_compass with storage manhunt: args
-execute if score #compass_amount var matches 2.. run function manhunt:clear_rest
+execute if score #compass_amount var matches 0 run function manhunt:compass/give_compass with storage manhunt: args
+execute if score #compass_amount var matches 2.. run function manhunt:compass/clear_rest
 
 # Get compass args
 function manhunt:compass_slots/get
 scoreboard players operation @s slot_before_drop = #compass_slot var
 data remove storage manhunt: args
 execute store result storage manhunt: args.id int 1 run scoreboard players get @s tracking_runner
-execute at @s run function manhunt:get_tracker_contexts with storage manhunt: args
+execute at @s run function manhunt:compass/get_tracker_contexts with storage manhunt: args
 
 # Sync compass for hunters tracking the runner
 tag @s add current_hunter
