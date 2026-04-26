@@ -4,7 +4,7 @@ scoreboard players set @s join_runner 0
 
 execute if entity @s[team=runner] run return run tellraw @s ["[§6ManHunt§r] 你已经加入 ", {text: "Runner", color: "red"}, " 了"]
 
-function manhunt:get_name
+function manhunt:compass/get_name
 team join runner @s
 tellraw @s ["[§6ManHunt§r] 你加入了 ", {text: "Runner", color: "red"}, " 队伍"]
 

@@ -1,2 +1,3 @@
+# Parent function: manhunt:sync_compass
 # @macro: {slot: str, slot_index: int|Literal[""], tracking_status: str, name: str, lodestone_tracker: compound[target: compound[Pos: Double[3], Dimension: str], tracked: Literal[false]]}
 $item replace entity @s $(slot)$(slot_index) with compass[tooltip_display={hidden_components: ["minecraft:enchantments"]}, enchantments={"minecraft:vanishing_curse":1b}, custom_data={manhunt_tracker:1b}, custom_name="$(tracking_status)§b$(name) §8(丢出切换)", lodestone_tracker=$(lodestone_tracker)]

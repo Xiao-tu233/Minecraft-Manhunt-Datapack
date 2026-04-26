@@ -1,3 +1,4 @@
+# Parent function: manhunt:sync_compass
 scoreboard players reset #compass_slot var
 scoreboard players set #i var 0
 data modify storage manhunt: args.slot set value 0

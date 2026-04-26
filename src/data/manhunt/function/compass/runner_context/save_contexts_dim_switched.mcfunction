@@ -1,0 +1,2 @@
+# Parent function: idk
+$data modify storage manhunt: runner_contexts[$(id)][$(dim)] set from entity @s Pos

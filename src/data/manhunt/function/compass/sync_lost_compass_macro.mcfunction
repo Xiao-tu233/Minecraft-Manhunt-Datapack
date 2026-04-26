@@ -1,0 +1,5 @@
+# Parent function: IDK
+$scoreboard players set #compass_slot var $(slot)
+$execute if score #compass_slot var matches 50 run item replace entity @s weapon.offhand with compass[custom_data={manhunt_tracker:1b}, custom_name=["§c丢失目标§r: §a$(name)"], lodestone_tracker={target:{dimension:"$(Dimension)", pos:$(Pos)}, tracked:false}]
+$execute if score #compass_slot var matches 51 run item replace entity @s player.cursor with compass[custom_data={manhunt_tracker:1b}, custom_name=["§c丢失目标§r: §a$(name)"], lodestone_tracker={target:{dimension:"$(Dimension)", pos:$(Pos)}, tracked:false}]
+$execute if score #compass_slot var matches 0..35 run item replace entity @s container.$(slot) with compass[custom_data={manhunt_tracker:1b}, custom_name=["§c丢失目标§r: §a$(name)"], lodestone_tracker={target:{dimension:"$(Dimension)", pos:$(Pos)}, tracked:false}]

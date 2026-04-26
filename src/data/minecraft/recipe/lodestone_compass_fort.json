@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "NCN",
+    " N "
+  ],
+  "key": {
+    "N": "minecraft:netherrack",
+    "C": "minecraft:compass"
+  },
+  "result": {
+    "id": "minecraft:compass",
+    "count": 1,
+    "components": {
+      "minecraft:lodestone_tracker": {
+        "target": {
+          "pos": [1, 1, 1],
+          "dimension": "minecraft:the_nether"
+        },
+        "tracked": true
+      },
+      "minecraft:custom_name": "§6堡垒定位器充能中(1分钟以内)",
+      "minecraft:custom_data": {"str_lct_fort": true} 
+    }
+  }
+}

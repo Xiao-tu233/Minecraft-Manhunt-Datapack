@@ -1,4 +1,4 @@
-execute if score #vote_expired var matches 1 run return run title @a times 0.5s 3.5s 1s
+execute if score #vote_expired var matches 1 run return 1
 
 title @a times 0s 3.5s 1s
 title @a[team=runner] title ["投票中,可一票通过"]

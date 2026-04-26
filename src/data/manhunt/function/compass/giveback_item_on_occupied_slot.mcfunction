@@ -1,3 +1,4 @@
+# Parent function: manhunt:sync_compass
 # @macro: {slot: str, slot_index: int|Literal[""]}
 
 execute if score @s slot_before_drop matches 50 run data modify storage manhunt: temp.occupied_item set from entity @s equipment.offhand
