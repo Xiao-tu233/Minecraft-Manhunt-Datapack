@@ -32,8 +32,9 @@ execute if score #game_started var matches 1 if score #pausing var matches 0 run
 
 execute as @a[team=runner] run function manhunt:compass/runner_context/save_contexts
 execute as @a[team=hunter] run function manhunt:compass/sync_compass
+
 # Automatically stop server if no one's in the server
 execute unless entity @a if score #game_started var matches 2 run function manhunt:single_utilities/stop
 
 #iron break detect
-execute as @a at @s if score @s mine_iron matches 1 if score @s iron_spread_status matches 1 run function manhunt:iron_spread/iron_detect
+#execute as @a at @s if score @s mine_iron matches 1 if score @s iron_spread_status matches 1 run function manhunt:iron_spread/iron_detect

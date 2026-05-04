@@ -62,7 +62,7 @@ execute if score #random_team_runners_added var <= #player_to_team var run data 
 execute unless score #random_team_runners_added var <= #player_to_team var run data modify storage manhunt: options[-1].color set value "gray"
 
 data modify storage manhunt: options append value "\n    §6执行分队§r: "
-data modify storage manhunt: options append value {text: "[ ", extra: [{color: "blue", score: {name: "#expected_hunters", objective: "var"}}, " §lvs ", {color: "red", score: {name: "#expected_runners", objective: "var"}}, "§r ]"], hover_event: {action: "show_text", value: ["点击对未分队的玩家随机分队为 ", {color: "green", score: {name: "#expected_hunters", objective: "var"}}, "名§9Hunter§r和", {color: "green", score: {name: "#expected_random_team_runners", objective: "var"}}, "名§cRunner"]}, click_event: {action: "run_command", command: "/function manhunt:random_team"}}
+data modify storage manhunt: options append value {text: "[ ", extra: [{color: "blue", score: {name: "#expected_hunters", objective: "var"}}, " §lvs ", {color: "red", score: {name: "#expected_runners", objective: "var"}}, "§r ]"], hover_event: {action: "show_text", value: ["点击对未分队的玩家随机分队为 ", {color: "green", score: {name: "#expected_hunters", objective: "var"}}, "名§9Hunter§r和", {color: "green", score: {name: "#expected_random_team_runners", objective: "var"}}, "名§cRunner"]}, click_event: {action: "run_command", command: "/function manhunt:random_team/random_team"}}
 
 data modify storage manhunt: options append value "\n    §6重置分队§r: "
 data modify storage manhunt: options append value {text: "[§l重置分队§r]", hover_event: {action: "show_text", value: "点击令所有玩家离开他们的队伍"}, click_event: {action: "run_command", command: "/function manhunt:options/reset_team"}}
