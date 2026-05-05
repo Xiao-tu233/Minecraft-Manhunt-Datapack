@@ -75,4 +75,4 @@ function manhunt:options
 # Kill brutes
 #structure locator
 function manhunt:structure_lct/check
-forceload add 1874998 1874998
+forceload add 29999983 29999983
