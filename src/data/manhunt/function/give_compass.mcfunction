@@ -1,0 +1,1 @@
+$item replace entity @s $(slot)$(slot_index) with compass[custom_data={manhunt_tracker:1b}]

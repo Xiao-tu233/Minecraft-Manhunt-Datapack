@@ -1,0 +1,34 @@
+{
+    "type": "multi_action",
+    "title": "退出确认",
+    "body": {
+        "type": "plain_message",
+        "contents": "你还没有保存现有的设置项变动, 是否继续?"
+    },
+    "actions": [
+        {
+            "label": "保存并退出",
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "function manhunt:options/dialog/save"
+            }
+        },
+        {
+            "label": "放弃更改并退出",
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "function manhunt:options/dialog/giveup"
+            }
+        }
+    ],
+    "after_action": "close",
+    "pause": false,
+    "can_close_with_escape": false,
+    "exit_action": {
+        "label": "返回",
+        "action": {
+            "type": "minecraft:run_command",
+            "command": "function manhunt:options"
+        }
+    }
+}
