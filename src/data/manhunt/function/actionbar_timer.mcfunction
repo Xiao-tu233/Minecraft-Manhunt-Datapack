@@ -1,0 +1,44 @@
+scoreboard players add #game_timer var 1
+
+execute if score #game_timer var matches 20 run function manhunt:timer/second
+
+execute store result score #day var run time query day
+scoreboard players add #day var 1
+
+execute store result score #daytime var run time query daytime
+
+scoreboard players operation #daytime_hour var = #daytime var
+scoreboard players operation #daytime_hour var /= #1000 var
+
+scoreboard players operation #daytime_minute var = #daytime var
+scoreboard players operation #daytime_minute var %= #1000 var
+scoreboard players operation #daytime_minute var *= #36 var
+scoreboard players operation #daytime_minute var /= #10 var
+scoreboard players operation #daytime_minute var /= #60 var
+
+data modify storage manhunt: game_timer.am_pm set value "早上"
+execute if score #daytime_hour var matches 6..11 run data modify storage manhunt: game_timer.am_pm set value "午后"
+execute if score #daytime_hour var matches 12..17 run data modify storage manhunt: game_timer.am_pm set value "夜晚"
+execute if score #daytime_hour var matches 18.. run data modify storage manhunt: game_timer.am_pm set value "凌晨"
+scoreboard players add #daytime_hour var 6
+execute if score #daytime_hour var matches 24.. run function manhunt:timer/rollover_day_at_midnight
+
+
+data modify storage manhunt: game_timer.hour_placeholder_ set value ""
+data modify storage manhunt: game_timer.minute_placeholder_ set value ""
+execute if score #daytime_hour var matches ..9 run data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
+execute if score #daytime_minute var matches ..9 run data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
+
+title @a actionbar ["", \
+    {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
+    {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
+    {score: {name: "#game_timer_minute", objective: "var"}, color: "yellow"}, ":", \
+    {storage: "manhunt:", nbt: "game_timer.second_placeholder", color: "yellow"}, \
+    {score: {name: "#game_timer_second", objective: "var"}, color: "yellow"}, " §8| §a第", \
+    {score: {name: "#day", objective: "var"}, color: "green"}, "§a天§r, ", \
+    {storage: "manhunt:", nbt: "game_timer.am_pm", color: "green"}, "", \
+    {storage: "manhunt:", nbt: "game_timer.hour_placeholder_", color: "yellow"}, \
+    {score: {name: "#daytime_hour", objective: "var"}, color: "yellow"}, ":", \
+    {storage: "manhunt:", nbt: "game_timer.minute_placeholder_", color: "yellow"}, \
+    {score: {name: "#daytime_minute", objective: "var"}, color: "yellow"} \
+]

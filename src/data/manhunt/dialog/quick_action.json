@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:notice",
+    "title": "§6Manhunt §bQuick Action§r",
+    "can_close_with_escape": true,
+    "after_action": "none",
+    "pause": false,
+    "body": {
+        "type": "minecraft:plain_message",
+        "contents": "在下方点进入来进入 Manhunt 配置菜单"
+    },
+    "action": {
+        "label": "进入配置菜单",
+        "tooltip": "点击进入 Manhunt 配置菜单",
+        "action": {
+            "type": "run_command",
+            "command": "/trigger open_menu"
+        }
+    }
+}

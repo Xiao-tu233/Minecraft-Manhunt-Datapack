@@ -1,0 +1,1 @@
+$data modify storage manhunt: options.dialog.actions[-1].label set value "§6随机分队§r: §c$(runner) §r§lvs §9$(hunter)"

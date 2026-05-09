@@ -1,0 +1,1 @@
+function manhunt:random_team/main
