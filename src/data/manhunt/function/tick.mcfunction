@@ -16,8 +16,8 @@ execute as @a[scores={hit_feedback=1..}] at @s run function manhunt:hit_feedback
 execute as @a[scores={start=1..}] run function manhunt:starting/start
 execute as @a[team=!runner, scores={runner_id=-1..}] run function manhunt:death/leave_runner
 clear @a[team=!hunter] compass[custom_data={manhunt_tracker:1b}]
-execute as @a[scores={pause=1..}] run function manhunt:pause/pause
-execute as @p[scores={vote=1..},tag=!voted] run function manhunt:pause/vote/vote
+execute as @a[scores={pause=1..}] if score #game_started var matches 1 run function manhunt:pause/pause
+execute as @p[scores={vote=1..},tag=!voted] if score #game_started var matches 1 run function manhunt:pause/vote/vote
 
 
 # Hit feedbacks
