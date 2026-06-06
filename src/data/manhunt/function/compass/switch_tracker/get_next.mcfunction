@@ -1,4 +1,4 @@
-# Parent function: manhunt:switch_tracker
+# Parent function: manhunt:compass/switch_tracker
 # Expected tracking runner: next id after current tracking runner(In case everyone didn't die.)
 scoreboard players operation #tracker_target var = @s tracking_runner
 scoreboard players set #alive_runner_found var 0

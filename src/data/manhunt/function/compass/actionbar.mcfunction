@@ -1,4 +1,4 @@
-# Parent function: manhunt:sync_compass
+# Parent function: manhunt:compass/sync_compass
 scoreboard players remove @s show_actionbar 1
 scoreboard players set #show_actionbar_second var -1
 scoreboard players operation #show_actionbar_second var += @s show_actionbar

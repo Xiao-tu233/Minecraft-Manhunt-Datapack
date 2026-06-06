@@ -72,7 +72,7 @@ tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎
 
 function manhunt:options
 
-# Kill brutes
-#structure locator
+# Kill brutes: Extra
+# structure locator
 function manhunt:structure_lct/check
 forceload add 29999983 29999983

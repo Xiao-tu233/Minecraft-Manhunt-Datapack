@@ -1,3 +1,3 @@
-# Parent function: manhunt:../lost_target
+# Parent function: manhunt:compass/lost_target
 scoreboard players set @s show_actionbar 60
 scoreboard players set @s show_actionbar.notice_type 1

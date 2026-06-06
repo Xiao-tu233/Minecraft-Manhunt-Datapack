@@ -11,7 +11,7 @@ scoreboard players enable @a vote
 execute as @a[scores={join_hunter=1..}] run function manhunt:join/hunter
 execute as @a[scores={join_runner=1..}] run function manhunt:join/runner
 execute as @a[scores={open_menu=1..}] run function manhunt:options
-execute as @a[scores={iron_spread=1..}] run function manhunt:iron_spread/switch_spread
+# execute as @a[scores={iron_spread=1..}] run function manhunt:iron_spread/switch_spread
 execute as @a[scores={hit_feedback=1..}] at @s run function manhunt:hit_feedback/switch
 execute as @a[scores={start=1..}] run function manhunt:starting/start
 execute as @a[team=!runner, scores={runner_id=-1..}] run function manhunt:death/leave_runner

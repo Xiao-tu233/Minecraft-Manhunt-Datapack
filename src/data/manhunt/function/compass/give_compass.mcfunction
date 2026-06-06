@@ -1,2 +1,2 @@
-# Parent function: manhunt:sync_compass
+# Parent function: manhunt:compass/sync_compass
 $item replace entity @s $(slot)$(slot_index) with compass[custom_data={manhunt_tracker:1b}]

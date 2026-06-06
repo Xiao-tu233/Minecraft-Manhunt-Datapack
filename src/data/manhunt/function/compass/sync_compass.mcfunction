@@ -56,6 +56,4 @@ execute if score @s matching_dimension matches 0 run data modify storage manhunt
 execute if score @s matching_dimension matches 1 run data modify storage manhunt: args.tracking_status set value "§a正在追踪§r§f: "
 execute unless score @s tracking_runner = @s tracking_runner run data modify storage manhunt: args.tracking_status set value "§c无可用追踪"
 
-# execute if score #compass_dropped var matches 0 if score #compass_amount var matches 0 \
-#     run function manhunt:compass/giveback_item_on_occupied_slot
 function manhunt:compass/sync with storage manhunt: args

@@ -37,8 +37,8 @@ data modify storage manhunt: options.dialog.actions[-1].action set value {type: 
 data modify storage manhunt: options.dialog.actions append value {label: "§9Hunter", tooltip: "点击作为 Hunter 进行游戏"}
 data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command", command: "/trigger join_hunter"}
 
+execute unless data storage manhunt: options.random_team_runners run data modify storage manhunt: options.random_team_runners set value 1
 execute store result score #random_team_runners var run data get storage manhunt: options.random_team_runners
-execute unless data storage manhunt: options.random_team_runners run scoreboard players set #random_team_runners var 1
 execute store result score #total_player var if entity @a
 scoreboard players operation #random_team_hunters var = #random_team_runners var
 scoreboard players operation #random_team_hunters var *= #-1 var
