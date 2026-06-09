@@ -9,6 +9,7 @@
       compass_leads_last_position_in_current_dimension: true, 
       compass_misses_when_dimension_is_not_matching: false, 
       locator_bar: false, 
-      summons_piglin_brutes: false
+      summons_piglin_brutes: false,
+      runner_winning_condition: "Killing the Ender Dragon" | "Hopped into the Fountain" | "Got to The End"
       }
 - [ ] Timer should be modifiable to be turned on/off

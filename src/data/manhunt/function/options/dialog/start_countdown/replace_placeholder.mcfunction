@@ -1,0 +1,1 @@
+$data modify storage manhunt: options.dialog.actions[-1].label set value "§6禁止活动时间§r: §a$(start_countdown_integer).$(start_countdown_tenths_place)$(start_countdown_hundredths_place)§r秒"

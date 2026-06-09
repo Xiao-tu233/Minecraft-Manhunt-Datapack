@@ -1,0 +1,41 @@
+{
+    "type": "minecraft:multi_action",
+    "columns": 3,
+    "title": "设置游戏难度",
+    "actions": [
+        {
+            "label": {
+                "translate": "options.difficulty.easy",
+                "color": "green"
+            },
+            "tooltip": "点击设置",
+            "action": {
+                "type": "run_command",
+                "command": "data modify storage manhunt: options.difficulty set value \"easy\""
+            }
+        },
+        {
+            "label": {
+                "translate": "options.difficulty.normal",
+                "color": "yellow"
+            },
+            "tooltip": "点击设置",
+            "action": {
+                "type": "run_command",
+                "command": "data modify storage manhunt: options.difficulty set value \"normal\""
+            }
+        },
+        {
+            "label": {
+                "translate": "options.difficulty.hard",
+                "color": "red"
+            },
+            "tooltip": "点击设置",
+            "action": {
+                "type": "run_command",
+                "command": "data modify storage manhunt: options.difficulty set value \"hard\""
+            }
+        }
+    ],
+    "can_close_with_escape": true
+}
