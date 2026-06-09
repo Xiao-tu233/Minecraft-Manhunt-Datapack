@@ -5,34 +5,29 @@ scoreboard objectives add start trigger
 scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
 scoreboard objectives add open_menu trigger
-scoreboard objectives add iron_spread trigger
 scoreboard objectives add pause trigger
 scoreboard objectives add vote trigger
-scoreboard objectives add hit_feedback trigger
-scoreboard objectives add hit_feedback_ dummy
 scoreboard objectives add if_die deathCount
-scoreboard objectives remove var
 scoreboard objectives add var dummy
 scoreboard objectives add dimension dummy
 scoreboard objectives add slot_before_drop dummy
 scoreboard objectives add show_actionbar dummy
 scoreboard objectives add show_actionbar.notice_type dummy
 scoreboard objectives add matching_dimension dummy
-scoreboard objectives add hurt dummy
-scoreboard objectives add mine_iron minecraft.mined:minecraft.iron_ore
-scoreboard objectives add iron_spread_status dummy
-scoreboard objectives add iron_spread_ dummy
-# scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken
-# scoreboard objectives add damage_taken_old dummy
+scoreboard objectives add uid dummy
+scoreboard objectives add runner_id dummy
+scoreboard objectives add tracking_runner dummy
+scoreboard objectives add seen_credits dummy
+scoreboard objectives add health health
+
+scoreboard players set #global_current uid 0
+scoreboard players set #global_current runner_id 0
 
 data remove storage manhunt: temp
+data modify storage manhunt: player_names set value {}
 
 scoreboard players set #pausing var 0
 scoreboard players set #hunter_voted var 0
-scoreboard objectives remove runner_id
-scoreboard players set #global_current runner_id 0
-scoreboard objectives add runner_id dummy
-scoreboard objectives add tracking_runner dummy
 
 # Constants
 scoreboard players set #1000 var 1000
@@ -54,23 +49,21 @@ team modify runner color red
 team leave *
 
 # Game inits
-gamerule locator_bar false
-execute in the_nether run gamerule locator_bar false
-execute in the_end run gamerule locator_bar false
-gamerule pvp true
-difficulty peaceful
+scoreboard players set #default_gamemode var 2
 gamemode adventure @a
-gamerule advance_time false
-gamerule advance_weather false
-time set day
-weather clear
-effect clear @a
-effect give @a instant_health 1 5
+difficulty peaceful
 effect give @a saturation 1 5
+effect give @a instant_health 1 5
+gamerule pvp false
+gamerule advance_time false
+time set day
+gamerule advance_weather false
+weather clear
 
-tellraw @a ["[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n§r  Copyright(C) 2026 PictureIsHere, Pressnre. All Rights Reserved."]
-
-function manhunt:options
+tellraw @a ["\
+[§6Manhunt§r] §aManHunt 数据包1.0.6 重新加载成功 欢迎使用! \n\
+§r  Copyright(C) 2026 PictureIsHere, Pressnre. All Rights Reserved. \n" \
+]
 
 # Kill brutes: Extra
 # structure locator

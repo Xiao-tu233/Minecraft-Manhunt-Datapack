@@ -17,7 +17,7 @@ execute at @s run summon text_display ~ ~ ~ {Tags: ["text_parser"]}
 
 data remove storage manhunt: options.dialog
 data modify storage manhunt: options.dialog set value {}
-data modify storage manhunt: options.dialog.after_action set value "none"
+data modify storage manhunt: options.dialog.after_action set value "close"
 data modify storage manhunt: options.dialog.pause set value false
 data modify storage manhunt: options.dialog.can_close_with_escape set value true
 data modify storage manhunt: options.dialog.title set value "§6Manhunt §b配置菜单§r"
@@ -25,8 +25,6 @@ data modify storage manhunt: options.dialog.columns set value 3
 data modify storage manhunt: options.dialog.type set value "multi_action"
 data modify storage manhunt: options.dialog.exit_action.label set value "退出"
 data modify storage manhunt: options.dialog.exit_action.tooltip set value "退出配置菜单"
-# data modify storage manhunt: options.dialog.exit_action.action set value {type: "run_command", command: "/function manhunt:options/dialog/exit"}
-
 data modify storage manhunt: options.dialog.body set value []
 
 data modify storage manhunt: options.dialog.actions set value []
@@ -99,12 +97,19 @@ execute store result score #locator_bar var run data get storage manhunt: option
 execute if score #locator_bar var matches 1 run function manhunt:options/dialog/locator_bar/on
 execute if score #locator_bar var matches 0 run function manhunt:options/dialog/locator_bar/off
 
+
+# Line -1 Button 1
 data modify storage manhunt: options.dialog.actions append value {label: "导入配置", tooltip: "点击导入已有配置"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "show_dialog", dialog: "manhunt:import_config"}
 
-# data modify storage manhunt: options.dialog.actions append value {label: "§8保存", tooltip: "§8尚未修改任何设置, 无须保存"}
-# execute if score #options_editted var matches 1 run function manhunt:options/dialog/save_available
-
+# Line -1 Button 3
 data modify storage manhunt: options.dialog.actions append value {label: "导出配置", tooltip: "点击导出当前配置"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "copy_to_clipboard"}
+
+data remove storage manhunt: args
+data modify storage manhunt: args.clipboard set from storage manhunt: options
+data remove storage manhunt: args.clipboard.dialog
+function manhunt:options/dialog/config/export with storage manhunt: args
 
 kill @e[tag=text_parser, type=text_display]
 

@@ -1,3 +1,3 @@
 data modify storage manhunt: temp.win_side set value "Runners"
-function manhunt:game_ends/game_ends
-team leave @a[team=runner]
+scoreboard players set @s seen_credits 2
+function manhunt:game_ends
