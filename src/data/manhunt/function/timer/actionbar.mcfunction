@@ -1,4 +1,3 @@
-scoreboard players add #game_timer var 1
 
 execute if score #game_timer var matches 20 run function manhunt:timer/second
 
@@ -29,7 +28,7 @@ data modify storage manhunt: game_timer.minute_placeholder_ set value ""
 execute if score #daytime_hour var matches ..9 run data modify storage manhunt: game_timer.hour_placeholder_ set value "0"
 execute if score #daytime_minute var matches ..9 run data modify storage manhunt: game_timer.minute_placeholder_ set value "0"
 
-title @a actionbar ["", \
+title @s actionbar ["", \
     {score: {name: "#game_timer_hour", objective: "var"}, color: "yellow"}, ":", \
     {storage: "manhunt:", nbt: "game_timer.minute_placeholder", color: "yellow"}, \
     {score: {name: "#game_timer_minute", objective: "var"}, color: "yellow"}, ":", \

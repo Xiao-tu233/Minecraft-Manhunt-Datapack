@@ -24,6 +24,9 @@ data modify storage manhunt: args.difficulty set from storage manhunt: options.d
 function manhunt:start/difficulty with storage manhunt: args
 execute store result score #start_countdown var run data get storage manhunt: options.start_countdown
 execute unless score #start_countdown var matches 0.. run function manhunt:start/start_countdown_default
+execute store result score #summons_piglin_brutes var run data get storage manhunt: options.summons_piglin_brutes
+execute if score #summons_piglin_brutes var matches 0 run function manhunt:execute_brute
+
 
 scoreboard players set @a if_die 0
 

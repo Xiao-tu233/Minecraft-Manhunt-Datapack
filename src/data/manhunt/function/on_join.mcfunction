@@ -5,6 +5,7 @@ tellraw @s ["[§6Manhunt§r] 欢迎游玩 Manhunt. 点击 ", {keybind: "key.quic
 execute if score #default_gamemode var matches 0 run gamemode survival
 execute if score #default_gamemode var matches 2 run gamemode adventure
 
+scoreboard players set @s show_timer 1
 effect give @s saturation 1 5
 effect give @s instant_health 1 5
 

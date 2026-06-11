@@ -6,19 +6,18 @@ scoreboard objectives add join_hunter trigger
 scoreboard objectives add join_runner trigger
 scoreboard objectives add open_menu trigger
 scoreboard objectives add pause trigger
-scoreboard objectives add vote trigger
 scoreboard objectives add if_die deathCount
 scoreboard objectives add var dummy
 scoreboard objectives add dimension dummy
 scoreboard objectives add slot_before_drop dummy
-scoreboard objectives add show_actionbar dummy
-scoreboard objectives add show_actionbar.notice_type dummy
+scoreboard objectives add actionbar_occupied dummy
 scoreboard objectives add matching_dimension dummy
 scoreboard objectives add uid dummy
 scoreboard objectives add runner_id dummy
 scoreboard objectives add tracking_runner dummy
-scoreboard objectives add seen_credits dummy
+scoreboard objectives add achieved_goal dummy
 scoreboard objectives add health health
+scoreboard objectives add show_timer trigger
 
 scoreboard players set #global_current uid 0
 scoreboard players set #global_current runner_id 0
@@ -49,9 +48,11 @@ team modify runner color red
 team leave *
 
 # Game inits
+scoreboard players set #game_started var 0
 scoreboard players set #default_gamemode var 2
 gamemode adventure @a
 difficulty peaceful
+scoreboard players set @a show_timer 1
 effect give @a saturation 1 5
 effect give @a instant_health 1 5
 gamerule pvp false

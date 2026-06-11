@@ -1,21 +1,22 @@
+# Objectives
 scoreboard objectives remove joined
 scoreboard objectives remove start
 scoreboard objectives remove join_hunter
 scoreboard objectives remove join_runner
 scoreboard objectives remove open_menu
 scoreboard objectives remove pause
-scoreboard objectives remove vote
 scoreboard objectives remove if_die
 scoreboard objectives remove var
 scoreboard objectives remove dimension
 scoreboard objectives remove slot_before_drop
-scoreboard objectives remove show_actionbar
-scoreboard objectives remove show_actionbar.notice_type
+scoreboard objectives remove actionbar_occupied
 scoreboard objectives remove matching_dimension
 scoreboard objectives remove uid
 scoreboard objectives remove runner_id
 scoreboard objectives remove tracking_runner
+scoreboard objectives remove achieved_goal
 scoreboard objectives remove health
+scoreboard objectives remove show_timer
 # Extra
 scoreboard objectives remove iron_spread
 scoreboard objectives remove hit_feedback

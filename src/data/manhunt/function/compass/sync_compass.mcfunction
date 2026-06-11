@@ -26,6 +26,9 @@ data remove storage manhunt: args
 execute store result storage manhunt: args.id int 1 run scoreboard players get @s tracking_runner
 execute at @s run function manhunt:compass/get_tracker_contexts with storage manhunt: args
 
+# Title Switched target on Actionbar 
+execute if score #compass_dropped var matches 1 run function manhunt:compass/actionbars/switched_target
+
 # Sync compass for hunters tracking the runner
 tag @s add current_hunter
 data modify storage manhunt: temp.compass.dim set from entity @s Dimension
@@ -35,11 +38,9 @@ tag @s remove current_hunter
 # #in_different_dimension = !( target_dim == dim )
 scoreboard players set #in_different_dimension var 0
 execute store success score #in_different_dimension var run data modify storage manhunt: temp.compass.dim set from storage manhunt: temp.compass.target_dim
+execute store result score #notify_tracking_status_change var run data get storage manhunt: options.notify_tracking_status_change
 execute if score #in_different_dimension var matches 0 run function manhunt:compass/regain_target
 execute if score #in_different_dimension var matches 1 run function manhunt:compass/lost_target
-
-# Occupy actionbar for 60 ticks: args: {name: str}
-execute if score @s show_actionbar matches 1.. run function manhunt:compass/actionbar
 
 # Macro args
 data remove storage manhunt: args
@@ -48,12 +49,18 @@ execute if score #compass_slot var matches 50 run data modify storage manhunt: a
 execute if score #compass_slot var matches 51 run data modify storage manhunt: args.slot set value "player.cursor"
 execute unless score #compass_slot var matches 0..35 run data modify storage manhunt: args.slot_index set value ""
 execute if score #compass_slot var matches 0..35 run data modify storage manhunt: args.slot set value "container."
-# Compass components
-data modify storage manhunt: args.name set from storage manhunt: name
-data modify storage manhunt: args.lodestone_tracker set value {}
-execute if data storage manhunt: temp.compass_contexts.Pos run function manhunt:compass/sync/set_lodestone_tracker
+
 execute if score @s matching_dimension matches 0 run data modify storage manhunt: args.tracking_status set value "§c丢失目标§r§f: "
 execute if score @s matching_dimension matches 1 run data modify storage manhunt: args.tracking_status set value "§a正在追踪§r§f: "
 execute unless score @s tracking_runner = @s tracking_runner run data modify storage manhunt: args.tracking_status set value "§c无可用追踪"
+
+# If track_last_position_across_dimensions is disabled, remove context to make compass lost
+execute store result score #track_last_position_across_dimensions var run data get storage manhunt: options.track_last_position_across_dimensions
+execute if score #track_last_position_across_dimensions var matches 0 if score @s matching_dimension matches 0 run data remove storage manhunt: temp.compass_contexts.Pos
+
+# Compass components
+data modify storage manhunt: args.name set from storage manhunt: name
+data modify storage manhunt: args.lodestone_tracker set value {}
+execute if data storage manhunt: temp.compass_contexts.Pos run function manhunt:compass/set_lodestone_tracker
 
 function manhunt:compass/sync with storage manhunt: args

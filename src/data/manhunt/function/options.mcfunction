@@ -30,14 +30,19 @@ data modify storage manhunt: options.dialog.body set value []
 data modify storage manhunt: options.dialog.actions set value []
 
 # Line 1 Button 1
-data modify storage manhunt: options.dialog.actions append value {label: "加入队伍: ", tooltip: "在右侧点击加入队伍"}
-
-# Line 1 Button 2
-data modify storage manhunt: options.dialog.actions append value {label: "§cRunner", tooltip: "点击作为 Runner 进行游戏"}
+data modify storage manhunt: options.dialog.actions append value {label: "加入队伍: §cRunner", tooltip: "点击作为 Runner 进行游戏"}
 data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command", command: "/trigger join_runner"}
 
+# Line 1 Button 2: Show Timer
+data modify storage manhunt: options.dialog.actions append value {label: "SHOW_TIMER_PLACEHOLDER", tooltip: "SHOW_TIMER_PLACEHOLDER_TOOLTIP"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command", command: "/trigger show_timer"}
+# Fill in the placeholder with actual values
+scoreboard players operation #show_timer var = @s show_timer
+execute if score #show_timer var matches 1 run function manhunt:options/dialog/show_timer/on
+execute if score #show_timer var matches -1 run function manhunt:options/dialog/show_timer/off
+
 # Line 1 Button 3
-data modify storage manhunt: options.dialog.actions append value {label: "§9Hunter", tooltip: "点击作为 Hunter 进行游戏"}
+data modify storage manhunt: options.dialog.actions append value {label: "加入队伍: §9Hunter", tooltip: "点击作为 Hunter 进行游戏"}
 data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command", command: "/trigger join_hunter"}
 
 # Default values for random team
@@ -93,14 +98,62 @@ function manhunt:options/dialog/difficulty/replace_placeholder with storage manh
 data modify storage manhunt: options.dialog.actions append value {label: "LOCATOR_BAR_PLACEHOLDER", tooltip: "LOCATOR_BAR_PLACEHOLDER_TOOLTIP"}
 data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command"}
 # Fill in the placeholder with actual values
+execute unless data storage manhunt: options.locator_bar run data modify storage manhunt: options.locator_bar set value false
 execute store result score #locator_bar var run data get storage manhunt: options.locator_bar
 execute if score #locator_bar var matches 1 run function manhunt:options/dialog/locator_bar/on
 execute if score #locator_bar var matches 0 run function manhunt:options/dialog/locator_bar/off
+
+# Line 4 Button 1: summons_piglin_brutes
+data modify storage manhunt: options.dialog.actions append value {label: "SUMMONS_PIGLIN_BRUTES_PLACEHOLDER", tooltip: "SUMMONS_PIGLIN_BRUTES_PLACEHOLDER_TOOLTIP"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command"}
+# Fill in the placeholder with actual values
+execute unless data storage manhunt: options.summons_piglin_brutes run data modify storage manhunt: options.summons_piglin_brutes set value false
+execute store result score #summons_piglin_brutes var run data get storage manhunt: options.summons_piglin_brutes
+execute if score #summons_piglin_brutes var matches 1 run function manhunt:options/dialog/summons_piglin_brutes/on
+execute if score #summons_piglin_brutes var matches 0 run function manhunt:options/dialog/summons_piglin_brutes/off
+
+# Line 4 Button 2: track_last_position_across_dimensions
+data modify storage manhunt: options.dialog.actions append value {label: "TRACK_LAST_POSITION_ACROSS_DIMENSIONS_PLACEHOLDER", tooltip: "TRACK_LAST_POSITION_ACROSS_DIMENSIONS_PLACEHOLDER_TOOLTIP"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command"}
+# Fill in the placeholder with actual values
+execute unless data storage manhunt: options.track_last_position_across_dimensions run data modify storage manhunt: options.track_last_position_across_dimensions set value true
+execute store result score #track_last_position_across_dimensions var run data get storage manhunt: options.track_last_position_across_dimensions
+execute if score #track_last_position_across_dimensions var matches 1 run function manhunt:options/dialog/track_last_position_across_dimensions/on
+execute if score #track_last_position_across_dimensions var matches 0 run function manhunt:options/dialog/track_last_position_across_dimensions/off
+
+# Line 4 Button 3: notify_tracking_status_change
+data modify storage manhunt: options.dialog.actions append value {label: "NOTIFY_TRACKING_STATUS_CHANGE_PLACEHOLDER", tooltip: "NOTIFY_TRACKING_STATUS_CHANGE_PLACEHOLDER_TOOLTIP"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command"}
+# Fill in the placeholder with actual values
+execute unless data storage manhunt: options.notify_tracking_status_change run data modify storage manhunt: options.notify_tracking_status_change set value true
+execute store result score #notify_tracking_status_change var run data get storage manhunt: options.notify_tracking_status_change
+execute if score #notify_tracking_status_change var matches 1 run function manhunt:options/dialog/notify_tracking_status_change/on
+execute if score #notify_tracking_status_change var matches 0 run function manhunt:options/dialog/notify_tracking_status_change/off
+
+# Line 5 Button 1: runner_winning_condition
+data modify storage manhunt: options.dialog.actions append value {label: "RUNNER_WINNING_CONDITION_PLACEHOLDER", tooltip: "点击设置 Runner 胜利条件"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command", command: "/dialog show @s manhunt:set_runner_winnning_condition"}
+
+# Fill in the placeholder with actual values
+data remove storage manhunt: args
+execute unless data storage manhunt: options.runner_winning_condition run data modify storage manhunt: options.runner_winning_condition set value "跳入终末之池"
+data modify storage manhunt: args.runner_winning_condition set from storage manhunt: options.runner_winning_condition
+function manhunt:options/dialog/runner_winning_condition/replace_placeholder with storage manhunt: args
+
+# Line 5 Button 2: None
+data modify storage manhunt: options.dialog.actions append value {label: "", tooltip: ""}
+
+# Line 5 Button 3: None
+data modify storage manhunt: options.dialog.actions append value {label: "", tooltip: ""}
 
 
 # Line -1 Button 1
 data modify storage manhunt: options.dialog.actions append value {label: "导入配置", tooltip: "点击导入已有配置"}
 data modify storage manhunt: options.dialog.actions[-1].action set value {type: "show_dialog", dialog: "manhunt:import_config"}
+
+# Line -1 Button 2
+data modify storage manhunt: options.dialog.actions append value {label: "§a§l§n开始游戏", tooltip: "点击开始游戏"}
+data modify storage manhunt: options.dialog.actions[-1].action set value {type: "run_command", command: "/trigger start"}
 
 # Line -1 Button 3
 data modify storage manhunt: options.dialog.actions append value {label: "导出配置", tooltip: "点击导出当前配置"}
