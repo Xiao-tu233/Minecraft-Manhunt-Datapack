@@ -14,3 +14,5 @@ scoreboard players operation #start_countdown_extra var *= #200 var
 scoreboard players operation #start_countdown var += #start_countdown_extra var
 
 execute if score #start_countdown var matches ..-1 run scoreboard players set #start_countdown var 0
+
+execute store result storage manhunt: options.start_countdown int 1 run scoreboard players get #start_countdown var

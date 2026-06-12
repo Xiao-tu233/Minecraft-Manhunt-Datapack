@@ -23,7 +23,7 @@ data remove storage manhunt: args
 data modify storage manhunt: args.difficulty set from storage manhunt: options.difficulty
 function manhunt:start/difficulty with storage manhunt: args
 execute store result score #start_countdown var run data get storage manhunt: options.start_countdown
-execute unless score #start_countdown var matches 0.. run function manhunt:start/start_countdown_default
+execute unless data storage manhunt: options.start_countdown run function manhunt:start/start_countdown_default
 execute store result score #summons_piglin_brutes var run data get storage manhunt: options.summons_piglin_brutes
 execute if score #summons_piglin_brutes var matches 0 run function manhunt:execute_brute
 
@@ -46,7 +46,10 @@ scoreboard players operation #start_countdown_second var /= #20 var
 
 execute if score #start_countdown var matches 1.. run tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 将在 ", {score: {name: "#start_countdown_second", objective: "var"}, color: "yellow"}, " 秒后开始行动! "]
 execute if score #start_countdown var matches 0 run tellraw @a ["[§6ManHunt§r] 游戏开始! Hunters 立即行动! "]
-execute as @a[team=hunter] run function manhunt:start_countdown/give_effect
+
+data remove storage manhunt: args
+execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var
+execute as @a[team=hunter] run function manhunt:start_countdown/give_effect with storage manhunt: args
 execute as @r[team=hunter] at @s run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoGravity:1b,Invulnerable:1b,Silent:1b,Tags:["hunter_anchor"]}
 
 scoreboard players set #game_started var 1

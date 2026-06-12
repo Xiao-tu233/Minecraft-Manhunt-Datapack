@@ -11,4 +11,8 @@ effect give @s instant_health 1 5
 
 execute unless score @s uid = @s uid run function manhunt:on_join/first_time
 
-execute if score #game_started var matches 1 if score #start_countdown var matches 1.. run function manhunt:start_countdown/give_effect
+data remove storage manhunt: args
+execute store result score #start_countdown_second var run data get storage manhunt: options.start_countdown
+scoreboard players operation #start_countdown_second var /= #20 var
+execute store result storage manhunt: args.sec int 1 run scoreboard players get #start_countdown_second var
+execute if score #game_started var matches 1 if score #start_countdown var matches 1.. as @s[team=hunter] run function manhunt:start_countdown/give_effect with storage manhunt: args
