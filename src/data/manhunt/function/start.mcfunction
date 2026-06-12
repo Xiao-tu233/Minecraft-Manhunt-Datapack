@@ -55,4 +55,7 @@ execute store result storage manhunt: args.sec int 1 run scoreboard players get 
 execute as @a[team=hunter] run function manhunt:start_countdown/give_effect with storage manhunt: args
 execute as @r[team=hunter] at @s run summon armor_stand ~ ~ ~ {Invisible:1b,Marker:1b,NoGravity:1b,Invulnerable:1b,Silent:1b,Tags:["hunter_anchor"]}
 
+spawnpoint @a[team=hunter] ~ ~ ~
+execute at @n[tag=hunter_anchor] run setworldspawn ~ ~ ~
+
 scoreboard players set #game_started var 1
