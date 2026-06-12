@@ -79,7 +79,7 @@ data modify storage manhunt: options.dialog.actions[-1].action set value {type: 
 
 # Fill in the placeholder with actual values
 data remove storage manhunt: args
-execute store result score #start_countdown var run data get storage manhunt: options.start_countdown
+execute store result score #option.start_countdown var run data get storage manhunt: options.start_countdown
 execute unless data storage manhunt: options.start_countdown run function manhunt:options/start_countdown_default
 function manhunt:options/dialog/start_countdown/tick_to_second
 function manhunt:options/dialog/start_countdown/replace_placeholder with storage manhunt: args

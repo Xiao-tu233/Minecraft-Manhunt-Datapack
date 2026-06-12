@@ -1,4 +1,5 @@
 # Parent function: manhunt:tick
+
 scoreboard players operation #start_countdown_second var = #start_countdown var
 scoreboard players operation #start_countdown_second var /= #20 var
 scoreboard players operation #start_countdown_second_dot var = #start_countdown var
