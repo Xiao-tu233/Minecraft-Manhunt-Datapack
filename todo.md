@@ -14,6 +14,7 @@
 - [x] Timer should be modifiable to be turned on/off: Action bar should be re-written that 不应该用覆盖的方式来显示 而应该通过目前分数来管理玩家应该显示的内容
 - [x] Trace back health when game ends
 
+- [ ] 猎人无法行动的时候动作栏不对
 
 # https://chatgpt.com/share/6a2b06fe-cec4-8321-95e0-a67a24697a15
 """
