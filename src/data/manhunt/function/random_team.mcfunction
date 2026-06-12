@@ -2,6 +2,8 @@
 # @input: #random_team_runners = len(@a[team=!runners, team=!hunters]) // 2
 
 team leave @a
+scoreboard players reset @a runner_id
+scoreboard players set #global_current runner_id 0
 
 execute unless data storage manhunt: options.random_team_runners run data modify storage manhunt: options.random_team_runners set value 1
 execute store result score #random_team_runners var run data get storage manhunt: options.random_team_runners
