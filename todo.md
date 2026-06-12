@@ -15,7 +15,7 @@
 - [x] Trace back health when game ends
 
 - [x] 猎人无法行动的时候动作栏不对
-- [ ] 在游戏开始之后就新建一个文件避免game_started这一变量失效
+- [x] 在游戏开始之后就新建一个文件避免game_started这一变量失效
 
 # https://chatgpt.com/share/6a2b06fe-cec4-8321-95e0-a67a24697a15
 """
