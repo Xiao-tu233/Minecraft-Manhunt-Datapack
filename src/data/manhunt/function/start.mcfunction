@@ -59,3 +59,9 @@ spawnpoint @a[team=hunter] ~ ~ ~
 execute at @n[tag=hunter_anchor] run setworldspawn ~ ~ ~
 
 scoreboard players set #game_started var 1
+
+
+# Create file of data/command_storage_game_started.dat for detecting if the game has ended or crashed
+data modify storage game_started: started set value true
+
+function manhunt:save-all
