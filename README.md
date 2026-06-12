@@ -5,14 +5,14 @@ A Manhunt Datapack supports multiple runners and hunters, compasses target switc
 并允许指南针目标切换等功能的数据包！！
 
 
-> This project is documented in Chinese only and supports Minecraft 1.21.10 - 1.21.11 only
+> This project is documented in Chinese only and supports Minecraft 1.21.11 only
 > This project does not accept pull requests or external contributions.
 > 本项目不接受 PR 或外部贡献。
-> 本项目 README 仅提供中文版本 且仅兼容 Minecraft 1.21.10 - 1.21.11
+> 本项目 README 仅提供中文版本 且仅兼容 Minecraft 1.21.11
 
 ## License | 协议
 
-© 2026 Xiao_tu233, Pressnre. All rights reserved.
+© 2026 PictureIsHere, Pressnre. All rights reserved.
 
 ---
 
@@ -38,105 +38,71 @@ This project is not open-source.
 
 强烈推荐使用服务端而不是局域网来进行使用
 
-按照一般的[数据包安装办法](https://zh.minecraft.wiki/w/Tutorial:%E5%AE%89%E8%A3%85%E6%95%B0%E6%8D%AE%E5%8C%85)即可
+如果希望游戏结束之后所有玩家退出就自动重启服务器 可以在server.properties里面 将function-permission-level调到4 所以数据包可以使用stop命令
+
+使用下面的脚本来快速启动和重启服务器：
+```cmd
+@echo OFF
+@set a=0
+:start
+set /a a+=1
+@title Manhunt Restart Times: %a%
+if exist "world\data\command_storage_game_ends.dat" (
+    rd /S /Q world
+    rd /S /Q world_nether
+    rd /S /Q world_the_end
+    xcopy datapacks world\datapacks /S /I /Q
+)
+java -jar server.jar nogui
+@echo [INFO] Manhunt Server will be restarting in 5 seconds!
+@goto start
+pause
+```
+
+如果使用了上述脚本 需要把数据包放在**服务器文件夹**下的datapacks文件夹中 而不是world下的 这样每次重置存档时会自动再把数据包添加到存档
 
 ### 比赛前
 
-比赛前所有玩家会禁止pvp 同时游戏模式会是和平模式 
-如果玩家血量或者饱食度不满 可以`/reload`重载数据包来回满
+比赛开始前，所有玩家都会被禁止 PVP，同时游戏难度会被设置为**和平模式**。
 
-#### Hunter 禁止活动时间调整
-游戏开始之后 Hunter 会有默认有30秒的禁止活动时间供 Runner 提前开始发育
-如果需要更改禁止活动的时间 需要更改变量 `#start_countdown` 单位是游戏刻(服务器不掉刻情况下的20分之1秒)
+如果玩家血量或饱食度未满，可以执行 `/reload` 重载数据包，将其恢复至满状态。
 
-例如我希望更改禁止活动的时间到1分钟(1200 ticks):
-```mcfunction
-/scoreboard players set #random_team_runners var 1200
-```
+所有设置项都可以通过默认按键 **G** 打开的快捷操作对话框进行调整。
 
-#### 关于分队
+点击**随机分队**后，会根据当前设置的 **Runner 数量**，对所有在线玩家进行随机分队。^[1]
+随机分队完成后，玩家仍然可以自行切换至其他队伍。
 
-作为 Hunter 游戏:
-```mcfunction
-/trigger join_hunter
-```
+当 Runner 点击开始游戏后，所有 Hunter 都会被固定在原地，并开始倒计时。
 
-作为 Runner 游戏:
-```mcfunction
-/trigger join_runner
-```
+**禁止活动时间**（Hunter 无法行动的时间）默认为：
 
-你事实上可以在游戏中的任何时候更换你的队伍 但是除非和所有人商量好 否则你不应该这么做
+> **30 秒 + 10 秒 × (Hunter 数量 − Runner 数量)**
+
+例如：
+
+* 1 名 Runner、3 名 Hunter：30 + 10 × (3 − 1) = **50 秒**
+* 2 名 Runner、1 名 Hunter：30 + 10 × (1 − 2) = **20 秒**
 
 ---
 
-随机分队的函数: `manhunt:random_team`
-随机分队会将**尚未加入任何队伍**的玩家
-按默认 Runner : Hunter ≈ 1 : 1 的比例随机分配，[^1]
+通常情况下，当 Runner 离开当前维度时，正在追踪该 Runner 的 Hunter 的追踪指南针会指向 Runner 在该维度最后出现的位置。
 
-当参与随机分队的玩家总数为奇数时，
-Runner 人数取总人数的一半并向下取整。
-
-通过`#random_team_runners`变量来更改Runner的期望人数(不包括已选队玩家)
-
-为了理解这些分队管理 这里是一些例子:
-- 3名玩家参加游戏 玩家A作为 Runner 游戏, 玩家B、C 作为 Hunter 游戏:
-  
-    玩家A运行指令:
-    ```mcfunction
-    /trigger join_runner
-    ```
-    玩家B、C运行指令:
-    ```mcfunction
-    /trigger join_hunter
-    ```
-
-- 7名玩家参加游戏 随机3个玩家作为 Runner 游戏:
-  
-    由于 3 就是 7 的一半并向下取整 所以直接:
-    ```mcfunction
-    /function manhunt:random_team
-    ```
-
-- 6名玩家参加游戏 2个玩家作为 Runner 游戏:
-  
-    先:
-    ```mcfunction
-    /scoreboard players set #random_team_runners var 2
-    ```
-    回车后:
-    ```mcfunction
-    /function manhunt:random_team
-    ```
-
-
-- 6名玩家参加游戏 有一名玩家他由于一些原因 他希望自己作为Hunter 游戏 剩下玩家随机3个 Runner 和2个 Hunter:
-  
-    先让这名有原因的玩家:
-    ```mcfunction
-    /trigger join_hunter
-    ```
-    由于我们的期望 直接随机分队并不能满足我们的要求(那会是2个Runner而不是3个) 手动调整 Runner 数量为3个:
-    ```mcfunction
-    /scoreboard players set #random_team_runners var 3
-    ```
-    然后运行:
-    ```mcfunction
-    /function manhunt:random_team
-    ```
-
-可能有些复杂 所以麻烦多看下这些例子
+如果关闭**跨维度追踪最后位置**选项，则 Hunter 只能知道 Runner 已离开当前维度，而无法获悉其最后所在位置，因此无法借此统一追踪路线。
 
 ---
 
-开始游戏: 作为 Runners 运行下述命令（不需要OP）
-```mcfunction
-/trigger start
-```
-开始游戏会清空玩家的背包和成就
-当玩家作为 Hunter 或者游戏已经开始了的情况下 这个命令会被阻断
+当 Runner 离开或重新进入某位 Hunter 所在的维度时，正在追踪该 Runner 的 Hunter 会收到动作栏提示：
+
+* **已失去追踪**
+* **已重新获悉**
+
+如果不希望显示这些提示，可以关闭**追踪状态变化通知**选项。
+
+关闭后，Hunter 将不会收到任何动作栏通知，需要通过指南针状态、进度（成就）等其他方式判断 Runner 当前是否位于同一维度。
 
 ---
+
+其余设置项都比较直观，可根据需要自行调整。
 
 ### 比赛中
 
@@ -154,18 +120,21 @@ Hunter 可以通过丢出指南针来切换追踪的 Runner
   ```
 
   如果所有 Runner 死亡, Hunter 胜利
-  如果任何 Runner **跳入[终末之池](https://zh.minecraft.wiki/w/%E8%BF%94%E5%9B%9E%E4%BC%A0%E9%80%81%E9%97%A8)**（也称末地池或返回传送门）即看到终末之诗, Runner 胜利
+  如果任何 Runner 达成胜利条件 Runner 胜利
   
+Runner 的胜利条件可以通过设置项进行配置，共有以下三种选项：
+* **跳入终末之池**：击杀末影龙后，跳入**终末之池**并进入终末之诗界面，即视为获胜。
+* **击杀末影龙**：由玩家直接击杀末影龙即可获胜。如果末影龙并非由玩家直接击杀（例如床爆、自身伤害等），则仍可通过跳入终末之池达成胜利。
+* **进入末地**：首次进入末地维度后立即获胜。
+
   任何一方胜利即游戏结束 所有玩家会切换为**创造模式**
 
 ### 比赛后
-  
-  如果希望再来一局:
-  - 用`/stop`关闭服务器
-  - 删除服务器根目录下的存档文件夹（默认 world，
-    由 server.properties 中的 level-name 决定）中，
-    除 datapacks 文件夹以外的所有文件和文件夹。
-  - 重新开服
+
+  如果你有将server.properties里面 将function-permission-level调到4 并且使用了推荐的启动脚本的话
+  只需要让所有玩家退出服务器 服务器便会自动重置并重启服务器
+  等重启结束进入游戏便可以开启一局新的游戏
+
   
   单人档开放到局域网联机方式的办法也差不多 这里不提及
 
