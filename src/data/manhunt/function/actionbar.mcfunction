@@ -5,4 +5,11 @@ execute if score @s actionbar_occupied matches 1.. run return 0
 
 title @s reset
 execute unless score #game_started var matches 1.. unless score #pausing var matches 1 run function manhunt:actionbar/player_count
-execute if score #game_started var matches 1 unless score #pausing var matches 1 if score @s show_timer matches 1 run function manhunt:timer/actionbar
+execute if entity @s[team=runner] if score #game_started var matches 1 unless score #pausing var matches 1 if score @s show_timer matches 1 run function manhunt:timer/actionbar
+execute \
+    if entity @s[team=hunter] \
+    if score #start_countdown var > #game_timer var \
+    if score #game_started var matches 1 \
+    unless score #pausing var matches 1 \
+    if score @s show_timer matches 1 \
+    run function manhunt:timer/actionbar
