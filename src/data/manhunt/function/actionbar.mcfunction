@@ -3,7 +3,6 @@
 scoreboard players remove @s[scores={actionbar_occupied=1..}] actionbar_occupied 1
 execute if score @s actionbar_occupied matches 1.. run return 0
 
-title @s reset
 execute unless score #game_started var matches 1.. unless score #pausing var matches 1 run function manhunt:actionbar/player_count
 execute if entity @s[team=runner] if score #game_started var matches 1 unless score #pausing var matches 1 if score @s show_timer matches 1 run function manhunt:timer/actionbar
 execute \
