@@ -1,6 +1,8 @@
 # Called by: (Player) Any OP
 # @input: #random_team_runners = len(@a[team=!runners, team=!hunters]) // 2
 
+team leave @a
+
 execute unless data storage manhunt: options.random_team_runners run data modify storage manhunt: options.random_team_runners set value 1
 execute store result score #random_team_runners var run data get storage manhunt: options.random_team_runners
 execute store result score #total_player var if entity @a
