@@ -22,6 +22,9 @@ xp set @a 0 levels
 data remove storage manhunt: args
 data modify storage manhunt: args.difficulty set from storage manhunt: options.difficulty
 function manhunt:start/difficulty with storage manhunt: args
+execute store result score #locator_bar var run data get storage manhunt: options.locator_bar
+execute unless score #locator_bar var matches 1 run gamerule locator_bar false
+execute if score #locator_bar var matches 1 run gamerule locator_bar true
 execute store result score #start_countdown var run data get storage manhunt: options.start_countdown
 execute unless data storage manhunt: options.start_countdown run function manhunt:start/start_countdown_default
 execute store result score #summons_piglin_brutes var run data get storage manhunt: options.summons_piglin_brutes
