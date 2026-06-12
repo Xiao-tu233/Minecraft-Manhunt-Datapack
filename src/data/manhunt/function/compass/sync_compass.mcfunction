@@ -27,7 +27,7 @@ execute store result storage manhunt: args.id int 1 run scoreboard players get @
 execute at @s run function manhunt:compass/get_tracker_contexts with storage manhunt: args
 
 # Title Switched target on Actionbar 
-execute if score #compass_dropped var matches 1 run function manhunt:compass/actionbars/switched_target
+execute if score #compass_dropped var matches 1 if score @s tracking_runner = @s tracking_runner run function manhunt:compass/actionbars/switched_target
 
 # Sync compass for hunters tracking the runner
 tag @s add current_hunter
