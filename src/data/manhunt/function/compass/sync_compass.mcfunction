@@ -26,9 +26,6 @@ data remove storage manhunt: args
 execute store result storage manhunt: args.id int 1 run scoreboard players get @s tracking_runner
 execute at @s run function manhunt:compass/get_tracker_contexts with storage manhunt: args
 
-# Title Switched target on Actionbar 
-execute if score #compass_dropped var matches 1 if score @s tracking_runner = @s tracking_runner run function manhunt:compass/actionbars/switched_target
-
 # Sync compass for hunters tracking the runner
 tag @s add current_hunter
 data modify storage manhunt: temp.compass.dim set from entity @s Dimension
@@ -41,6 +38,9 @@ execute store success score #in_different_dimension var run data modify storage 
 execute store result score #notify_tracking_status_change var run data get storage manhunt: options.notify_tracking_status_change
 execute if score #in_different_dimension var matches 0 run function manhunt:compass/regain_target
 execute if score #in_different_dimension var matches 1 run function manhunt:compass/lost_target
+
+# Title Switched target on Actionbar 
+execute if score #compass_dropped var matches 1 if score @s tracking_runner = @s tracking_runner run function manhunt:compass/actionbars/switched_target
 
 # Macro args
 data remove storage manhunt: args
