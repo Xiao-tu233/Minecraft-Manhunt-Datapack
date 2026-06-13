@@ -1,0 +1,1 @@
+$data modify storage manhunt: options.dialog.actions[-1].label set value "§6Runner 胜利条件§r: §a$(runner_winning_condition)"

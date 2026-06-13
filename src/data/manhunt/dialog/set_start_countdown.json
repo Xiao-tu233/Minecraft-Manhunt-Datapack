@@ -24,7 +24,7 @@
             "tooltip": "点击设置",
             "action": {
                 "type": "dynamic/run_command",
-                "template": "function manhunt:options/countdown_set_second {var: $(var)}"
+                "template": "function manhunt:options/set_start_countdown {var: $(var)}"
             }
         },
         {
@@ -32,7 +32,7 @@
             "tooltip": "点击设置",
             "action": {
                 "type": "dynamic/run_command",
-                "template": "function manhunt:options/countdown_set_second {var: $(var_)}"
+                "template": "function manhunt:options/set_start_countdown {var: $(var_)}"
             }
         }
     ],

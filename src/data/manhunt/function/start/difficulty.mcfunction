@@ -1,0 +1,2 @@
+difficulty hard
+$difficulty $(difficulty)

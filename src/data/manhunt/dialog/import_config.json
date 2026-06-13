@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:notice",
+    "title": "在下方输入框输入配置代码来导入配置",
+    "can_close_with_escape": true,
+    "after_action": "close",
+    "pause": false,
+    "inputs": [
+        {
+            "key": "config",
+            "type": "text",
+            "label": "导入:",
+            "initial": "{}",
+            "width": 512,
+            "max_length": 2048,
+            "multiline": {}
+        }
+    ],
+    "body": {
+        "type": "minecraft:plain_message",
+        "contents": ""
+    },
+    "action": {
+        "label": "应用",
+        "tooltip": "点击应用输入的配置",
+        "action": {
+            "type": "dynamic/run_command",
+            "template": "function manhunt:options/import_config {config: '$(config)'}"
+        }
+    }
+}

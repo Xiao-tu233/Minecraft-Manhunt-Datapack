@@ -1,0 +1,41 @@
+{
+    "type": "minecraft:multi_action",
+    "columns": 3,
+    "title": "设置游戏难度",
+    "actions": [
+        {
+            "label": {
+                "text": "进入末地",
+                "color": "green"
+            },
+            "tooltip": "点击设置",
+            "action": {
+                "type": "run_command",
+                "command": "data modify storage manhunt: options.runner_winning_condition set value \"进入末地\""
+            }
+        },
+        {
+            "label": {
+                "text": "击杀末影龙",
+                "color": "yellow"
+            },
+            "tooltip": "点击设置",
+            "action": {
+                "type": "run_command",
+                "command": "data modify storage manhunt: options.runner_winning_condition set value \"击杀末影龙\""
+            }
+        },
+        {
+            "label": {
+                "text": "跳入终末之池",
+                "color": "red"
+            },
+            "tooltip": "点击设置",
+            "action": {
+                "type": "run_command",
+                "command": "data modify storage manhunt: options.runner_wining_condition set value \"跳入终末之池\""
+            }
+        }
+    ],
+    "can_close_with_escape": true
+}

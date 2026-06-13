@@ -1,0 +1,1 @@
+$data modify storage manhunt: options.dialog.actions[-1].action.value set value '$(clipboard)'

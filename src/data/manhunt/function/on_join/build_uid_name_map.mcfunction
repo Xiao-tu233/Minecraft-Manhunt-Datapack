@@ -1,0 +1,1 @@
+$data modify storage manhunt: player_names.$(uid) set value "$(name)"

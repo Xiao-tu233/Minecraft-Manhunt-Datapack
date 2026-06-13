@@ -1,0 +1,1 @@
+$data modify storage manhunt: options.dialog.actions[-1].label set value "§6游戏难度§r: §a$(difficulty)"
