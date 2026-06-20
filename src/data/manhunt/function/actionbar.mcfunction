@@ -3,12 +3,29 @@
 scoreboard players remove @s[scores={actionbar_occupied=1..}] actionbar_occupied 1
 execute if score @s actionbar_occupied matches 1.. run return 0
 
+# Pausing
+execute if score #pausing var matches 1 run title @s actionbar "游戏暂停中..."
+
+# Before Start
 execute unless score #game_started var matches 1.. unless score #pausing var matches 1 run function manhunt:actionbar/player_count
-execute if entity @s[team=runner] if score #game_started var matches 1 unless score #pausing var matches 1 if score @s show_timer matches 1 run function manhunt:timer/actionbar
+
+# Started but start countdown still goes
 execute \
     if entity @s[team=hunter] \
-    if score #start_countdown var > #game_timer var \
     if score #game_started var matches 1 \
     unless score #pausing var matches 1 \
-    if score @s show_timer matches 1 \
-    run function manhunt:timer/actionbar
+    if score #start_countdown var matches 0.. \
+    run function manhunt:actionbar/countdown
+
+# Started: Timer
+scoreboard players set #show_timer var 0
+execute if entity @s[team=runner] run scoreboard players set #show_timer var 1
+execute \
+    if entity @s[team=hunter] \
+    if score #start_countdown var matches -1 \
+    run scoreboard players set #show_timer var 1
+
+execute unless score #game_started var matches 1 run scoreboard players set #show_timer var 0
+execute unless score @s show_timer matches 1 run scoreboard players set #show_timer var 0
+execute if score #pausing var matches 1 run scoreboard players set #show_timer var 0
+execute if score #show_timer var matches 1 run title @s actionbar {storage: "manhunt:", nbt: "game_timer[]", interpret: true, separator: ""}

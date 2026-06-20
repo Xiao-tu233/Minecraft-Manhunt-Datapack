@@ -1,7 +1,7 @@
 {
     "type": "minecraft:multi_action",
     "columns": 3,
-    "title": "设置游戏难度",
+    "title": "设置 Runner 胜利条件",
     "actions": [
         {
             "label": {

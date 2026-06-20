@@ -16,7 +16,6 @@ scoreboard objectives add uid dummy
 scoreboard objectives add runner_id dummy
 scoreboard objectives add tracking_runner dummy
 scoreboard objectives add achieved_goal dummy
-scoreboard objectives add health health
 scoreboard objectives add show_timer trigger
 
 scoreboard players set #global_current uid 0
@@ -57,6 +56,7 @@ effect give @a saturation 1 5
 effect give @a instant_health 1 5
 gamerule pvp false
 gamerule advance_time false
+gamerule locator_bar false
 time set day
 gamerule advance_weather false
 weather clear

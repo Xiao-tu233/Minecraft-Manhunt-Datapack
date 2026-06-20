@@ -9,8 +9,8 @@ scoreboard players enable @a show_timer
 execute as @a[scores={join_hunter=1..}] run function manhunt:join/hunter
 execute as @a[scores={join_runner=1..}] run function manhunt:join/runner
 execute as @a[scores={open_menu=1..}] run function manhunt:options
-execute as @a[scores={show_timer=0}] run function manhunt:timer/show
-execute as @a[scores={show_timer=2}] run function manhunt:timer/hide
+execute as @a[scores={show_timer=0, joined=1}] run function manhunt:timer/show
+execute as @a[scores={show_timer=2, joined=1}] run function manhunt:timer/hide
 # execute as @a[scores={iron_spread=1..}] run function manhunt:iron_spread/switch_spread
 
 execute as @a[scores={start=1..}] run function manhunt:start
