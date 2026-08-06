@@ -62,7 +62,7 @@ pause
 ```
 
 Linux:
-```Bash
+```bash
 #!/usr/bin/env bash
 a=0
 cd "$(dirname "$0")" || exit 1
