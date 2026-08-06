@@ -41,6 +41,8 @@ This project is not open-source.
 如果希望游戏结束之后所有玩家退出就自动重启服务器 可以在server.properties里面 将function-permission-level调到4 所以数据包可以使用stop命令
 
 使用下面的脚本来快速启动和重启服务器：
+
+Windows:
 ```cmd
 @echo OFF
 @set a=0
@@ -57,6 +59,27 @@ java -jar server.jar nogui
 @echo [INFO] Manhunt Server will be restarting in 5 seconds!
 @goto start
 pause
+```
+
+Linux:
+```
+#!/usr/bin/env bash
+a=0
+cd "$(dirname "$0")" || exit 1
+while true; do
+    a=$((a + 1))
+    printf '\033]0;Manhunt Restart Times: %s\007' "$a"
+    if [ -f "world/data/command_storage_game_ends.dat" ]; then
+        rm -rf world world_nether world_the_end
+        mkdir -p world
+        if [ -d "datapacks" ]; then
+            cp -a datapacks world/datapacks
+        fi
+    fi
+    java -jar server.jar nogui
+    echo "[INFO] Manhunt Server will be restarting in 5 seconds!"
+    sleep 5
+done
 ```
 
 如果使用了上述脚本 需要把数据包放在**服务器文件夹**下的datapacks文件夹中 而不是world下的 这样每次重置存档时会自动再把数据包添加到存档
