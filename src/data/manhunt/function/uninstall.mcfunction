@@ -15,7 +15,6 @@ scoreboard objectives remove uid
 scoreboard objectives remove runner_id
 scoreboard objectives remove tracking_runner
 scoreboard objectives remove achieved_goal
-scoreboard objectives remove health
 scoreboard objectives remove show_timer
 # Extra
 scoreboard objectives remove iron_spread
